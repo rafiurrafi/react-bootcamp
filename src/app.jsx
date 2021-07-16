@@ -1,6 +1,7 @@
 import React from "react";
+import AppBar from "./hangman/App";
 const App = (props) => {
-  return <h1>Hello from App</h1>;
+  return <AppBar />;
 };
 
 export default App;
