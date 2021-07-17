@@ -9,18 +9,6 @@ import img5 from "./images/5.jpg";
 import img6 from "./images/6.jpg";
 
 class Hangman extends Component {
-  /** by default, allow 6 guesses and use provided gallows images. */
-  static defaultProps = {
-    maxWrong: 6,
-    images: [img0, img1, img2, img3, img4, img5, img6],
-  };
-
-  constructor(props) {
-    super(props);
-    this.state = { nWrong: 0, guessed: new Set(), answer: "apple" };
-    this.handleGuess = this.handleGuess.bind(this);
-  }
-
   /** guessedWord: show current-state of word:
     if guessed letters are {a,p,e}, show "app_e" for "apple"
   */
