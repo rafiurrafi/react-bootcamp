@@ -1,7 +1,10 @@
 import React from "react";
-import AppBar from "./hangman/App";
 const App = (props) => {
-  return <AppBar />;
+  return (
+    <>
+      <h1>Hello from supermarket</h1>
+    </>
+  );
 };
 
 export default App;
