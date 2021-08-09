@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "../styles/navbarStyles";
 
-import { ThemeContext } from "../contexts/ThemeContext";
 import { withLanguageContext } from "../contexts/LanguageContext";
 
 import AppBar from "@material-ui/core/AppBar";
@@ -14,20 +13,20 @@ import InputBase from "@material-ui/core/InputBase";
 import Switch from "@material-ui/core/Switch";
 import SearchIcon from "@material-ui/icons/Search";
 
-const languageContent = {
-  EN: {
-    search: "Search",
-    flag: "🇬🇧",
-  },
-  FR: {
-    search: "Chercher",
-    flag: "🇫🇷",
-  },
-  SP: {
-    search: "Buscar",
-    flag: "🇪🇸",
-  },
-};
+// const languageContent = {
+//   EN: {
+//     search: "Search",
+//     flag: "🇬🇧",
+//   },
+//   FR: {
+//     search: "Chercher",
+//     flag: "🇫🇷",
+//   },
+//   SP: {
+//     search: "Buscar",
+//     flag: "🇪🇸",
+//   },
+// };
 
 class Navbar extends Component {
   render() {

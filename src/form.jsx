@@ -3,8 +3,6 @@ import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "../styles/formStyles";
 
-import { LanguageContext } from "../contexts/LanguageContext";
-
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 // import CssBaseline from '@material-ui/core/CssBaseline'
