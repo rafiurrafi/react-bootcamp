@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import { withStyles } from "@material-ui/core/styles";
-import styles from "../styles/NavbarStyles";
+import styles from "../styles/navbarStyles";
 
 import { ThemeContext } from "../contexts/ThemeContext";
 import { withLanguageContext } from "../contexts/LanguageContext";
@@ -30,22 +30,17 @@ const languageContent = {
 };
 
 class Navbar extends Component {
-  static contextType = ThemeContext;
-
   render() {
     const { classes } = this.props;
-    const { language } = this.props.languageContext;
-    const { search, flag } = languageContent[language];
-    const { isDarkTheme, toggleTheme } = this.context;
 
     return (
       <div className={classes.root}>
-        <AppBar position="static" color={isDarkTheme ? "default" : "primary"}>
+        <AppBar position="static">
           <Toolbar>
             {/* FLAG */}
             <IconButton className={classes.menuButton} color="inherit">
               <span role="img" aria-label="French Flag">
-                {flag}
+                EN
               </span>
             </IconButton>
 
@@ -55,7 +50,7 @@ class Navbar extends Component {
             </Typography>
 
             {/* THEME SWITCH */}
-            <Switch onChange={toggleTheme} />
+            <Switch />
 
             <div className={classes.grow} />
 
@@ -65,7 +60,7 @@ class Navbar extends Component {
                 <SearchIcon />
               </div>
               <InputBase
-                placeholder={`${search}...`}
+                placeholder="Search"
                 classes={{ root: classes.inputRoot, input: classes.inputInput }}
               />
             </div>

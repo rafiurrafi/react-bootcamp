@@ -1,9 +1,12 @@
 import React from "react";
 import "./app.css";
+import Navbar from "./navbar";
+import Form from "./form";
 const App = (props) => {
   return (
     <>
-      <h1>Hello from supermarket</h1>
+      <Navbar />
+      <Form />
     </>
   );
 };
