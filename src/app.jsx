@@ -4,12 +4,15 @@ import Navbar from "./navbar";
 import Form from "./form";
 import PageContent from "./pageContent";
 import ThemeProvider from "./contexts/ThemeContext";
+import LanguageProvider from "./contexts/LanguageContext";
 const App = (props) => {
   return (
     <ThemeProvider>
       <PageContent>
-        <Navbar />
-        <Form />
+        <LanguageProvider>
+          <Navbar />
+          <Form />
+        </LanguageProvider>
       </PageContent>
     </ThemeProvider>
   );

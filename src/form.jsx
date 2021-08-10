@@ -16,6 +16,7 @@ import Typography from "@material-ui/core/Typography";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import { LanguageContext } from "./contexts/LanguageContext";
 
 // const languageContent = {
 //   EN: {
@@ -42,9 +43,10 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 // };
 
 class Form extends Component {
+  static contextType = LanguageContext;
   render() {
     const { classes } = this.props;
-
+    const { language, onLanguageChange } = this.context;
     return (
       <main className={classes.main}>
         <Paper className={classes.paper}>
@@ -57,7 +59,7 @@ class Form extends Component {
           <Typography variant="h5"></Typography>
 
           {/* LANGUAGE SELECT */}
-          <Select>
+          <Select value={language} onChange={onLanguageChange}>
             <MenuItem value="EN">English</MenuItem>
             <MenuItem value="FR">French</MenuItem>
             <MenuItem value="SP">Spanish</MenuItem>
