@@ -1,11 +1,15 @@
 import React, { Component } from "react";
-const styles = {
-  backgroundColor: "red",
-  width: "100%",
-  minHeight: "100vh",
-};
+import { ThemeContext } from "./contexts/ThemeContext";
+
 class PageContent extends Component {
+  static contextType = ThemeContext;
   render() {
+    const { isDarkMode } = this.context;
+    const styles = {
+      backgroundColor: isDarkMode ? "#000" : "#fff",
+      width: "100%",
+      minHeight: "100vh",
+    };
     return <div style={styles}>{this.props.children}</div>;
   }
 }
