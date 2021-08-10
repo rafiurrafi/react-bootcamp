@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "./styles/navbarStyles";
+import { ThemeContext } from "./contexts/ThemeContext";
 
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -27,9 +28,10 @@ import SearchIcon from "@material-ui/icons/Search";
 // };
 
 class Navbar extends Component {
+  static contextType = ThemeContext;
   render() {
     const { classes } = this.props;
-
+    console.log(this.context);
     return (
       <div className={classes.root}>
         <AppBar position="static">
