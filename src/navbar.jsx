@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 
 import { withStyles } from "@material-ui/core/styles";
-import styles from "../styles/navbarStyles";
-
-import { withLanguageContext } from "../contexts/LanguageContext";
+import styles from "./styles/navbarStyles";
 
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -70,4 +68,4 @@ class Navbar extends Component {
   }
 }
 
-export default withStyles(styles)(withLanguageContext(Navbar));
+export default withStyles(styles)(Navbar);
