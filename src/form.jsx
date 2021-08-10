@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useContext } from "react";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "./styles/formStyles";
@@ -42,64 +42,60 @@ const languageContent = {
   },
 };
 
-class Form extends Component {
-  static contextType = LanguageContext;
-  render() {
-    const { classes } = this.props;
-    const { language, onLanguageChange } = this.context;
-    const { headerText, email, password, checkboxText, buttonText } =
-      languageContent[language];
-    console.log(this.context);
-    return (
-      <main className={classes.main}>
-        <Paper className={classes.paper}>
-          {/* LOCK ICON */}
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
+const Form = (props) => {
+  const { classes } = props;
+  const { language, onLanguageChange } = useContext(LanguageContext);
+  const { headerText, email, password, checkboxText, buttonText } =
+    languageContent[language];
+  return (
+    <main className={classes.main}>
+      <Paper className={classes.paper}>
+        {/* LOCK ICON */}
+        <Avatar className={classes.avatar}>
+          <LockOutlinedIcon />
+        </Avatar>
 
-          {/* HEADER */}
-          <Typography variant="h5">{headerText}</Typography>
+        {/* HEADER */}
+        <Typography variant="h5">{headerText}</Typography>
 
-          {/* LANGUAGE SELECT */}
-          <Select value={language} onChange={onLanguageChange}>
-            <MenuItem value="EN">English</MenuItem>
-            <MenuItem value="FR">French</MenuItem>
-            <MenuItem value="SP">Spanish</MenuItem>
-          </Select>
+        {/* LANGUAGE SELECT */}
+        <Select value={language} onChange={onLanguageChange}>
+          <MenuItem value="EN">English</MenuItem>
+          <MenuItem value="FR">French</MenuItem>
+          <MenuItem value="SP">Spanish</MenuItem>
+        </Select>
 
-          {/* SIGN-IN FORM */}
-          <form className={classes.form}>
-            {/* EMAIL */}
-            <FormControl margin="normal" required fullWidth>
-              <InputLabel htmlFor="email">{email}</InputLabel>
-              <Input id="email" name="email" autoFocus />
-            </FormControl>
-            {/* PASSWORD */}
-            <FormControl margin="normal" required fullWidth>
-              <InputLabel htmlFor="password">{password}</InputLabel>
-              <Input id="password" name="password" />
-            </FormControl>
-            {/* CHECKBOX */}
-            <FormControlLabel
-              control={<Checkbox color="primary" />}
-              label={checkboxText}
-            />
-            {/* SIGN-IN BUTTON */}
-            <Button
-              variant="contained"
-              type="submit"
-              fullWidth
-              color="primary"
-              className={classes.submit}
-            >
-              {buttonText}
-            </Button>
-          </form>
-        </Paper>
-      </main>
-    );
-  }
-}
+        {/* SIGN-IN FORM */}
+        <form className={classes.form}>
+          {/* EMAIL */}
+          <FormControl margin="normal" required fullWidth>
+            <InputLabel htmlFor="email">{email}</InputLabel>
+            <Input id="email" name="email" autoFocus />
+          </FormControl>
+          {/* PASSWORD */}
+          <FormControl margin="normal" required fullWidth>
+            <InputLabel htmlFor="password">{password}</InputLabel>
+            <Input id="password" name="password" />
+          </FormControl>
+          {/* CHECKBOX */}
+          <FormControlLabel
+            control={<Checkbox color="primary" />}
+            label={checkboxText}
+          />
+          {/* SIGN-IN BUTTON */}
+          <Button
+            variant="contained"
+            type="submit"
+            fullWidth
+            color="primary"
+            className={classes.submit}
+          >
+            {buttonText}
+          </Button>
+        </form>
+      </Paper>
+    </main>
+  );
+};
 
 export default withStyles(styles)(Form);
