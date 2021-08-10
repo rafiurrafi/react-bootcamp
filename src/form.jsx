@@ -18,35 +18,38 @@ import Select from "@material-ui/core/Select";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import { LanguageContext } from "./contexts/LanguageContext";
 
-// const languageContent = {
-//   EN: {
-//     headerText: "Sign In",
-//     email: "Email",
-//     password: "Password",
-//     checkboxText: "Remember Me",
-//     buttonText: "Sign In",
-//   },
-//   FR: {
-//     headerText: "Se Connecter",
-//     email: "Adresse Èlectronique",
-//     password: "Mot de Passe",
-//     checkboxText: "Souviens-toi De Moi",
-//     buttonText: "Se Connecter",
-//   },
-//   SP: {
-//     headerText: "Registrarse",
-//     email: "Correo Electrónico",
-//     password: "Contraseña",
-//     checkboxText: "Recuérdame",
-//     buttonText: "Registrarse",
-//   },
-// };
+const languageContent = {
+  EN: {
+    headerText: "Sign In",
+    email: "Email",
+    password: "Password",
+    checkboxText: "Remember Me",
+    buttonText: "Sign In",
+  },
+  FR: {
+    headerText: "Se Connecter",
+    email: "Adresse Èlectronique",
+    password: "Mot de Passe",
+    checkboxText: "Souviens-toi De Moi",
+    buttonText: "Se Connecter",
+  },
+  SP: {
+    headerText: "Registrarse",
+    email: "Correo Electrónico",
+    password: "Contraseña",
+    checkboxText: "Recuérdame",
+    buttonText: "Registrarse",
+  },
+};
 
 class Form extends Component {
   static contextType = LanguageContext;
   render() {
     const { classes } = this.props;
     const { language, onLanguageChange } = this.context;
+    const { headerText, email, password, checkboxText, buttonText } =
+      languageContent[language];
+    console.log(this.context);
     return (
       <main className={classes.main}>
         <Paper className={classes.paper}>
@@ -56,7 +59,7 @@ class Form extends Component {
           </Avatar>
 
           {/* HEADER */}
-          <Typography variant="h5"></Typography>
+          <Typography variant="h5">{headerText}</Typography>
 
           {/* LANGUAGE SELECT */}
           <Select value={language} onChange={onLanguageChange}>
@@ -69,18 +72,18 @@ class Form extends Component {
           <form className={classes.form}>
             {/* EMAIL */}
             <FormControl margin="normal" required fullWidth>
-              <InputLabel htmlFor="email">Email</InputLabel>
+              <InputLabel htmlFor="email">{email}</InputLabel>
               <Input id="email" name="email" autoFocus />
             </FormControl>
             {/* PASSWORD */}
             <FormControl margin="normal" required fullWidth>
-              <InputLabel htmlFor="password">Password</InputLabel>
+              <InputLabel htmlFor="password">{password}</InputLabel>
               <Input id="password" name="password" />
             </FormControl>
             {/* CHECKBOX */}
             <FormControlLabel
               control={<Checkbox color="primary" />}
-              label="checkbox"
+              label={checkboxText}
             />
             {/* SIGN-IN BUTTON */}
             <Button
@@ -90,7 +93,7 @@ class Form extends Component {
               color="primary"
               className={classes.submit}
             >
-              Sign up
+              {buttonText}
             </Button>
           </form>
         </Paper>

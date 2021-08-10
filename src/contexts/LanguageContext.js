@@ -8,15 +8,16 @@ class LanguageProvider extends Component {
     };
     this.handleLanguageChange = this.handleLanguageChange.bind(this);
   }
-  handleLanguageChange(language) {
-    this.setState({ language });
+  handleLanguageChange(e) {
+    console.log(e.target.value);
+    this.setState({ language: e.target.value });
   }
   render() {
     return (
       <LanguageContext.Provider
         value={{
           ...this.state,
-          onlanguagechange: this.handleLanguageChange,
+          onLanguageChange: this.handleLanguageChange,
         }}
       >
         {this.props.children}
