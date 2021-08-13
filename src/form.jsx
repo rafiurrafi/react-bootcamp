@@ -46,7 +46,7 @@ class Form extends Component {
   static contextType = LanguageContext;
   render() {
     const { classes } = this.props;
-    console.log(this.context);
+    const { language, onLanguageChange } = this.context;
 
     return (
       <main className={classes.main}>
@@ -57,10 +57,10 @@ class Form extends Component {
           </Avatar>
 
           {/* HEADER */}
-          <Typography variant="h5"></Typography>
+          <Typography variant="h5">Sign in</Typography>
 
           {/* LANGUAGE SELECT */}
-          <Select>
+          <Select value={language} onChange={onLanguageChange}>
             <MenuItem value="EN">English</MenuItem>
             <MenuItem value="FR">French</MenuItem>
             <MenuItem value="SP">Spanish</MenuItem>
