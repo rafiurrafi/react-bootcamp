@@ -11,27 +11,32 @@ import InputBase from "@material-ui/core/InputBase";
 import Switch from "@material-ui/core/Switch";
 import SearchIcon from "@material-ui/icons/Search";
 import { ThemeContext } from "./contexts/ThemeContext";
+import {
+  LanguageContext,
+  withLanguageContext,
+} from "./contexts/LanguageContext";
 
-// const languageContent = {
-//   EN: {
-//     search: "Search",
-//     flag: "🇬🇧",
-//   },
-//   FR: {
-//     search: "Chercher",
-//     flag: "🇫🇷",
-//   },
-//   SP: {
-//     search: "Buscar",
-//     flag: "🇪🇸",
-//   },
-// };
+const languageContent = {
+  EN: {
+    search: "Search",
+    flag: "🇬🇧",
+  },
+  FR: {
+    search: "Chercher",
+    flag: "🇫🇷",
+  },
+  SP: {
+    search: "Buscar",
+    flag: "🇪🇸",
+  },
+};
 
 class Navbar extends Component {
   static contextType = ThemeContext;
   render() {
     const { classes } = this.props;
     const { isDarkMode, onThemeChange } = this.context;
+    const { language } = this.props.languageContext;
     return (
       <div className={classes.root}>
         <AppBar position="static" color={isDarkMode ? "default" : "primary"}>
@@ -39,7 +44,7 @@ class Navbar extends Component {
             {/* FLAG */}
             <IconButton className={classes.menuButton} color="inherit">
               <span role="img" aria-label="French Flag">
-                EN
+                {languageContent[language].flag}
               </span>
             </IconButton>
 
@@ -59,8 +64,11 @@ class Navbar extends Component {
                 <SearchIcon />
               </div>
               <InputBase
-                placeholder="Search"
-                classes={{ root: classes.inputRoot, input: classes.inputInput }}
+                placeholder={languageContent[language].search}
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput,
+                }}
               />
             </div>
           </Toolbar>
@@ -70,4 +78,4 @@ class Navbar extends Component {
   }
 }
 
-export default withStyles(styles)(Navbar);
+export default withLanguageContext(withStyles(styles)(Navbar));
