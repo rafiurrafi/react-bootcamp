@@ -31,10 +31,10 @@ class Navbar extends Component {
   static contextType = ThemeContext;
   render() {
     const { classes } = this.props;
-    console.log(this.context);
+    const { isDarkMode, onThemeChange } = this.context;
     return (
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar position="static" color={isDarkMode ? "default" : "primary"}>
           <Toolbar>
             {/* FLAG */}
             <IconButton className={classes.menuButton} color="inherit">
@@ -49,7 +49,7 @@ class Navbar extends Component {
             </Typography>
 
             {/* THEME SWITCH */}
-            <Switch />
+            <Switch onChange={onThemeChange} />
 
             <div className={classes.grow} />
 
