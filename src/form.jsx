@@ -16,6 +16,7 @@ import Typography from "@material-ui/core/Typography";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import { LanguageContext } from "./contexts/LanguageContext";
 
 // const languageContent = {
 //   EN: {
@@ -42,8 +43,10 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 // };
 
 class Form extends Component {
+  static contextType = LanguageContext;
   render() {
     const { classes } = this.props;
+    console.log(this.context);
 
     return (
       <main className={classes.main}>
