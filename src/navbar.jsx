@@ -10,6 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import InputBase from "@material-ui/core/InputBase";
 import Switch from "@material-ui/core/Switch";
 import SearchIcon from "@material-ui/icons/Search";
+import { ThemeContext } from "./contexts/ThemeContext";
 
 // const languageContent = {
 //   EN: {
@@ -27,9 +28,10 @@ import SearchIcon from "@material-ui/icons/Search";
 // };
 
 class Navbar extends Component {
+  static contextType = ThemeContext;
   render() {
     const { classes } = this.props;
-
+    console.log(this.context);
     return (
       <div className={classes.root}>
         <AppBar position="static">
