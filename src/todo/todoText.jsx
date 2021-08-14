@@ -5,7 +5,7 @@ const TodoText = (props) => {
       {" "}
       <p>Title</p>
       <div>
-        <a href>
+        <a onClick={props.onOpenForm}>
           <i className="fa fa-pencil"></i>
         </a>
         <a href>
