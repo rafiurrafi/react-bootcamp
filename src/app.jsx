@@ -3,7 +3,7 @@ import "./app.css";
 import TodoLists from "./todo/todoLists";
 const App = (props) => {
   return (
-    <div>
+    <div className="App">
       <TodoLists />
     </div>
   );

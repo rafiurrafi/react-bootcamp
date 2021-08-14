@@ -1,7 +1,12 @@
 import React, { Component } from "react";
+import TodoText from "./todoText";
 class TodoList extends Component {
   render() {
-    return <div>Single todo list</div>;
+    return (
+      <div className="TodoList">
+        <TodoText />
+      </div>
+    );
   }
 }
 
