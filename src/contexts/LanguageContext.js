@@ -30,5 +30,4 @@ export const withLanguageContext = (Component) => (props) => {
     </LanguageContext.Consumer>
   );
 };
-
 export default LanguageProvider;
