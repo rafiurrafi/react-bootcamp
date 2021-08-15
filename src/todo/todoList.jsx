@@ -17,12 +17,18 @@ class TodoList extends Component {
     this.setState({ isEdit: false });
   }
   render() {
+    const { todoList, onAddToList } = this.props;
     return (
       <div className="TodoList">
         {!this.state.isEdit ? (
-          <TodoText onOpenForm={this.handleOpenForm} />
+          <TodoText todoList={todoList} onOpenForm={this.handleOpenForm} />
         ) : (
-          <TodoListInput onOpenList={this.handleOpenList} />
+          <TodoListInput
+            _id={todoList._id}
+            todoList={todoList}
+            onOpenList={this.handleOpenList}
+            onAddToList={onAddToList}
+          />
         )}
       </div>
     );

@@ -3,7 +3,7 @@ const TodoText = (props) => {
   return (
     <>
       {" "}
-      <p>Title</p>
+      <p>{props.todoList.title}</p>
       <div>
         <a onClick={props.onOpenForm}>
           <i className="fa fa-pencil"></i>

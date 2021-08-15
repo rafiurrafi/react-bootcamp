@@ -1,14 +1,35 @@
 import React, { Component } from "react";
+import { todoLists } from "./fakeTodoList";
 import TodoInput from "./todoInput";
 import TodoList from "./todoList";
 class TodoLists extends Component {
-  state = {};
+  constructor() {
+    super();
+    this.state = {
+      todoLists: [...todoLists],
+    };
+    this.addToList = this.addToList.bind(this);
+  }
+  addToList(title) {
+    const { todoLists } = this.state;
+    const item = todoLists.filter((itm) => itm.title == title);
+    console.log(item);
+    const newTodoLists = [...todoLists, { _id: todoLists.length + 1, title }];
+    this.setState({ todoLists: newTodoLists });
+  }
   render() {
+    const { todoLists } = this.state;
     return (
       <div>
         <h2>Todo List</h2>
         <p>A simple React todo list app</p>
-        <TodoList />
+        {todoLists.map((todoList) => (
+          <TodoList
+            key={todoList._id}
+            todoList={todoList}
+            onAddToList={this.addToList}
+          />
+        ))}
         <TodoInput />
       </div>
     );
