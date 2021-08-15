@@ -10,9 +10,9 @@ class TodoLists extends Component {
     };
     this.addToList = this.addToList.bind(this);
   }
-  addToList(title) {
+  addToList(title, _id) {
     const { todoLists } = this.state;
-    const item = todoLists.filter((itm) => itm.title == title);
+    const item = todoLists.find((itm) => todoLists._id === _id);
     console.log(item);
     const newTodoLists = [...todoLists, { _id: todoLists.length + 1, title }];
     this.setState({ todoLists: newTodoLists });
