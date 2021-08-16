@@ -3,7 +3,7 @@ const Todo = (props) => {
   return (
     <div>
       <button>Edit</button>
-      <button>X</button>
+      <button onClick={props.onRemove}>X</button>
       <li>{props.task}</li>
     </div>
   );
