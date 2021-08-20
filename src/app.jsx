@@ -1,12 +1,10 @@
 import React from "react";
 import "./app.css";
-import CounterClass from "./todos/hook-intro/counterClass";
-import CounterHooks from "./todos/hook-intro/counterHooks";
-import Toggler from "./todos/hook-intro/toggler";
+import SimpleForm from "./todos/hook-intro/simpleForm";
 const App = (props) => {
   return (
     <div className="App">
-      <Toggler />
+      <SimpleForm />
     </div>
   );
 };
