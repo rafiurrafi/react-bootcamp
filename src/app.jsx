@@ -1,10 +1,10 @@
 import React from "react";
 import "./app.css";
-import TodoList from "./todos/todoList";
+import CounterClass from "./todos/hook-intro/counterClass";
 const App = (props) => {
   return (
     <div className="App">
-      <TodoList />
+      <CounterClass />
     </div>
   );
 };
