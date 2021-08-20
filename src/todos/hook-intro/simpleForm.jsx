@@ -1,21 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
+import useInput from './hooks/useInput';
 const SimpleForm = (props) => {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const handleName = e => {
-        setName(e.target.value)
-    }
-    const handleEmail = e => {
-        setEmail(e.target.value)
-    }
-    const handlePassword = e => {
-        setPassword(e.target.value)
-    }
+    const [name, setName] = useInput("");
+    const [email, setEmail] = useInput("");
+    const [password, setPassword] = useInput("");
+   
     return ( <form>
-        <input value = {name} onChange = {handleName} />
-        <input value = {email} onChange = {handleEmail} />
-        <input value = {password} onChange = {handlePassword} />
+        <input value = {name} onChange = {setName} />
+        <input value = {email} onChange = {setEmail} />
+        <input value = {password} onChange = {setPassword} />
         <span> <br />Name : {name} <br />
         Email : {email} <br />
         Password : {password} <br /></span>
