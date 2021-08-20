@@ -4,11 +4,13 @@ const CounterHooks = (props) => {
     const handleCount = () => {
         setCount(count + 1)
     }
-    return ( <div>
-        <h1>Counter hook</h1>
-        <h2>{count}</h2>
-        <button onClick = {handleCount}>Kill using hook</button>
-    </div> );
+    return (
+         <div>
+            <h1>Counter hook</h1>
+            <h2>{count}</h2>
+            <button onClick = {handleCount}>Kill using hook</button>
+        </div> 
+        );
 }
  
 export default CounterHooks;
