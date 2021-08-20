@@ -1,10 +1,10 @@
 import React from "react";
 import "./app.css";
-import SimpleForm from "./todos/hook-intro/simpleForm";
+import Clicker from "./todos/hook-intro/clicker";
 const App = (props) => {
   return (
     <div className="App">
-      <SimpleForm />
+      <Clicker />
     </div>
   );
 };
