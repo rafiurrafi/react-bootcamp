@@ -2,6 +2,7 @@ import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
+import TodoList from "./todoList";
 const styles = (theme) => ({
   toolbarMargin: theme.mixins.toolbar,
 });
@@ -23,7 +24,7 @@ const TodoApp = (props) => {
         </Toolbar>
       </AppBar>
       <div className={classes.toolbarMargin} />
-      {/* <TodoList /> */}
+      <TodoList />
     </Paper>
   );
 };
