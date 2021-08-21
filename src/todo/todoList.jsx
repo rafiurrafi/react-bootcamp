@@ -1,25 +1,48 @@
 import React, { useState } from "react";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
+import { withStyles } from "@material-ui/styles";
+
+const styles = (theme) => ({
+  deleteIcon: {
+    border: "none",
+    background: "transparent",
+    cursor: "pointer",
+  },
+});
+
 const initialTodos = [
   { _id: 1, task: "Feed cow", completed: false },
-  { _id: 2, task: "Sleep cow", completed: false },
+  { _id: 2, task: "Sleep cow", completed: true },
   { _id: 3, task: "Drink cow", completed: false },
   { _id: 4, task: "Gaze cow", completed: false },
 ];
 const TodoList = (props) => {
+  const { classes } = props;
   const [todos, setTodos] = useState(initialTodos);
+  const handleDelete = (_id) => {
+    const copiedTodos = todos.filter((t) => t._id !== _id);
+    setTodos(copiedTodos);
+  };
   return (
     <List>
       {todos.map((todo) => (
         <ListItem key={todo._id}>
-          <ListItemText>{todo.task}</ListItemText>
+          <ListItemText>
+            {todo.completed ? <del>{todo.task}</del> : <span>{todo.task}</span>}
+          </ListItemText>
+          <button className={classes.deleteIcon}>OK</button>
+          <button
+            onClick={() => handleDelete(todo._id)}
+            className={classes.deleteIcon}
+          >
+            X
+          </button>
         </ListItem>
       ))}
     </List>
   );
 };
 
-export default TodoList;
+export default withStyles(styles)(TodoList);
