@@ -25,6 +25,13 @@ const TodoList = (props) => {
     const copiedTodos = todos.filter((t) => t._id !== _id);
     setTodos(copiedTodos);
   };
+  const handleComplete = (id) => {
+    const newTodos = [...todos];
+    const todoItem = newTodos.find((t) => t._id === id);
+    if (todoItem.completed) todoItem.completed = false;
+    else todoItem.completed = true;
+    setTodos(newTodos);
+  };
   return (
     <List>
       {todos.map((todo) => (
@@ -32,7 +39,12 @@ const TodoList = (props) => {
           <ListItemText>
             {todo.completed ? <del>{todo.task}</del> : <span>{todo.task}</span>}
           </ListItemText>
-          <button className={classes.deleteIcon}>OK</button>
+          <button
+            onClick={() => handleComplete(todo._id)}
+            className={classes.deleteIcon}
+          >
+            OK
+          </button>
           <button
             onClick={() => handleDelete(todo._id)}
             className={classes.deleteIcon}
