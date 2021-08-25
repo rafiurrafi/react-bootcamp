@@ -10,11 +10,14 @@ import {
 // import { DeleteIcon, EditIcon } from "@material-ui/icons";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
-const Todo = ({ todo, onRemoveTodos }) => {
+const Todo = ({ todo, onRemoveTodos, onToggleTodos }) => {
   return (
     <>
       <ListItem>
-        <Checkbox checked={todo.completed} />
+        <Checkbox
+          checked={todo.completed}
+          onChange={() => onToggleTodos(todo._id)}
+        />
         <ListItemText
           style={{ textDecoration: todo.completed ? "line-through" : "none" }}
         >
