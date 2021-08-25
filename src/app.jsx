@@ -1,10 +1,10 @@
 import React from "react";
 import "./app.css";
-import TodoApp from "./todo/todoApp";
+import Appbar from "./todo/App";
 const App = (props) => {
   return (
     <div className="App">
-      <TodoApp />
+      <Appbar />
     </div>
   );
 };
