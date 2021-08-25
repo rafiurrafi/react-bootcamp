@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Paper from "@material-ui/core/Paper";
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
 import TodoList from "./todoList";
+import TodoForm from "./todoForm";
 const TodoApp = (props) => {
   const initialTodos = [
     { _id: 1, task: "Feed cow", completed: false },
@@ -25,6 +26,7 @@ const TodoApp = (props) => {
           <Typography color="inherit">TODOS with hooks</Typography>
         </Toolbar>
       </AppBar>
+      <TodoForm />
       <TodoList todos={todos} />
     </Paper>
   );
