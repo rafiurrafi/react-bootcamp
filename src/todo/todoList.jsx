@@ -3,12 +3,12 @@ import { List } from "@material-ui/core";
 
 import React from "react";
 import Todo from "./todo";
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, onRemoveTodos }) => {
   return (
     <Paper>
       <List>
         {todos.map((todo) => (
-          <Todo task={todo.task} />
+          <Todo key={todo._id} todo={todo} onRemoveTodos={onRemoveTodos} />
         ))}
       </List>
     </Paper>
