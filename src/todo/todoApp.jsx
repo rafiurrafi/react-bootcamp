@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Paper from "@material-ui/core/Paper";
-import { AppBar, Toolbar, Typography } from "@material-ui/core";
+import { AppBar, Grid, Toolbar, Typography } from "@material-ui/core";
 import TodoList from "./todoList";
 import TodoForm from "./todoForm";
 const TodoApp = (props) => {
@@ -10,6 +10,9 @@ const TodoApp = (props) => {
     { _id: 3, task: "Bath cow", completed: true },
   ];
   const [todos, setTodos] = useState(initialTodos);
+  const addTodos = (todoTask) => {
+    setTodos([...todos, { _id: 1, task: todoTask, completed: false }]);
+  };
   return (
     <Paper
       style={{
@@ -26,8 +29,12 @@ const TodoApp = (props) => {
           <Typography color="inherit">TODOS with hooks</Typography>
         </Toolbar>
       </AppBar>
-      <TodoForm />
-      <TodoList todos={todos} />
+      <Grid container justify="center" style={{ marginTop: "1rem" }}>
+        <Grid item xs={11} md={8} lg={4}>
+          <TodoForm onAddTodo={addTodos} />
+          <TodoList todos={todos} />
+        </Grid>
+      </Grid>
     </Paper>
   );
 };
