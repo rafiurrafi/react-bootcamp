@@ -16,6 +16,9 @@ const TodoApp = (props) => {
   const initialTodos = [{ _id: 1, task: "Feed cow", completed: true }];
   const classes = useStyles();
   const [todos, setTodos] = useState(initialTodos);
+  const addTodos = (task) => {
+    setTodos([...todos, { _id: 1, task, completed: false }]);
+  };
   return (
     <Paper
       style={{
@@ -33,7 +36,7 @@ const TodoApp = (props) => {
       <div className={classes.toolbarMargin} />
       <Grid container justify="center">
         <Grid item xs={11} md={8} lg={4}>
-          <TodoForm />
+          <TodoForm onAddTodos={addTodos} />
           <TodoList todos={todos} />
         </Grid>
       </Grid>
