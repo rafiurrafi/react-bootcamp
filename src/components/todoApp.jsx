@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Paper from "@material-ui/core/Paper";
 import { AppBar, makeStyles, Toolbar, Typography } from "@material-ui/core";
 import TodoList from "./todoList";
+import TodoForm from "./todoForm";
 const useStyles = makeStyles((theme) => ({
   toolbarMargin: theme.mixins.toolbar,
 }));
@@ -24,6 +25,7 @@ const TodoApp = (props) => {
         </Toolbar>
       </AppBar>
       <div className={classes.toolbarMargin} />
+      <TodoForm />
       <TodoList todos={todos} />
     </Paper>
   );
