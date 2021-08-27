@@ -1,12 +1,12 @@
 import React from "react";
-import { TextField } from "@material-ui/core";
+import { Paper, TextField } from "@material-ui/core";
 const TodoForm = (props) => {
   return (
-    <>
+    <Paper>
       <form>
-        <TextField />
+        <TextField fullWidth label="Add new todo" />
       </form>
-    </>
+    </Paper>
   );
 };
 

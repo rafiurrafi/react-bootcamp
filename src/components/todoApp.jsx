@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import Paper from "@material-ui/core/Paper";
-import { AppBar, makeStyles, Toolbar, Typography } from "@material-ui/core";
+import {
+  AppBar,
+  Grid,
+  makeStyles,
+  Toolbar,
+  Typography,
+} from "@material-ui/core";
 import TodoList from "./todoList";
 import TodoForm from "./todoForm";
 const useStyles = makeStyles((theme) => ({
@@ -25,8 +31,12 @@ const TodoApp = (props) => {
         </Toolbar>
       </AppBar>
       <div className={classes.toolbarMargin} />
-      <TodoForm />
-      <TodoList todos={todos} />
+      <Grid container justify="center">
+        <Grid item xs={11} md={8} lg={4}>
+          <TodoForm />
+          <TodoList todos={todos} />
+        </Grid>
+      </Grid>
     </Paper>
   );
 };
