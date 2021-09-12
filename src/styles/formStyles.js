@@ -4,6 +4,7 @@ const styles = (theme) => ({
     display: "block",
     marginLeft: theme.spacing.unit * 3,
     marginRight: theme.spacing.unit * 3,
+    marginTop: theme.spacing.unit * 7,
     [theme.breakpoints.up("sm")]: {
       width: 400,
       marginLeft: "auto",

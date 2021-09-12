@@ -1,12 +1,12 @@
 import React from "react";
-import "./styles/App.css";
-
-import Navbar from "./components/navbar";
+import Navbar from "./navbar";
+import Form from "./form";
 
 const App = (props) => {
   return (
     <div>
       <Navbar />
+      <Form />
     </div>
   );
 };
