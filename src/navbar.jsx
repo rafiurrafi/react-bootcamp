@@ -11,6 +11,8 @@ import InputBase from "@material-ui/core/InputBase";
 import Switch from "@material-ui/core/Switch";
 import SearchIcon from "@material-ui/icons/Search";
 
+import { ThemeContext } from "./contexts/themeContext";
+
 // const languageContent = {
 //   EN: {
 //     search: "Search",
@@ -27,12 +29,14 @@ import SearchIcon from "@material-ui/icons/Search";
 // };
 
 class Navbar extends Component {
+  static contextType = ThemeContext;
   render() {
+    const { isDarkMode, onThemeChange } = this.context;
     const { classes } = this.props;
 
     return (
       <div className={classes.root}>
-        <AppBar position="fixed">
+        <AppBar position="fixed" color={isDarkMode ? "default" : "primary"}>
           <Toolbar>
             {/* FLAG */}
             <IconButton className={classes.menuButton} color="inherit">
@@ -47,7 +51,7 @@ class Navbar extends Component {
             </Typography>
 
             {/* THEME SWITCH */}
-            <Switch />
+            <Switch value={isDarkMode} onChange={onThemeChange} />
 
             <div className={classes.grow} />
 
