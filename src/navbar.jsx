@@ -12,21 +12,22 @@ import Switch from "@material-ui/core/Switch";
 import SearchIcon from "@material-ui/icons/Search";
 
 import { ThemeContext } from "./contexts/themeContext";
+import { LanguageContext } from "./contexts/languageContext";
 
-// const languageContent = {
-//   EN: {
-//     search: "Search",
-//     flag: "🇬🇧",
-//   },
-//   FR: {
-//     search: "Chercher",
-//     flag: "🇫🇷",
-//   },
-//   SP: {
-//     search: "Buscar",
-//     flag: "🇪🇸",
-//   },
-// };
+const languageContent = {
+  EN: {
+    search: "Search",
+    flag: "🇬🇧",
+  },
+  FR: {
+    search: "Chercher",
+    flag: "🇫🇷",
+  },
+  SP: {
+    search: "Buscar",
+    flag: "🇪🇸",
+  },
+};
 
 class Navbar extends Component {
   static contextType = ThemeContext;
@@ -35,39 +36,50 @@ class Navbar extends Component {
     const { classes } = this.props;
 
     return (
-      <div className={classes.root}>
-        <AppBar position="fixed" color={isDarkMode ? "default" : "primary"}>
-          <Toolbar>
-            {/* FLAG */}
-            <IconButton className={classes.menuButton} color="inherit">
-              <span role="img" aria-label="French Flag">
-                EN
-              </span>
-            </IconButton>
+      <LanguageContext.Consumer>
+        {(value) => (
+          <div className={classes.root}>
+            <AppBar position="fixed" color={isDarkMode ? "default" : "primary"}>
+              <Toolbar>
+                {/* FLAG */}
+                <IconButton className={classes.menuButton} color="inherit">
+                  <span role="img" aria-label="French Flag">
+                    {languageContent[value.language].flag}
+                  </span>
+                </IconButton>
 
-            {/* TITLE */}
-            <Typography className={classes.title} variant="h6" color="inherit">
-              App Title
-            </Typography>
+                {/* TITLE */}
+                <Typography
+                  className={classes.title}
+                  variant="h6"
+                  color="inherit"
+                >
+                  App Title
+                </Typography>
 
-            {/* THEME SWITCH */}
-            <Switch value={isDarkMode} onChange={onThemeChange} />
+                {/* THEME SWITCH */}
+                <Switch value={isDarkMode} onChange={onThemeChange} />
 
-            <div className={classes.grow} />
+                <div className={classes.grow} />
 
-            {/* SEARCH INPUT */}
-            <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <SearchIcon />
-              </div>
-              <InputBase
-                placeholder="Search"
-                classes={{ root: classes.inputRoot, input: classes.inputInput }}
-              />
-            </div>
-          </Toolbar>
-        </AppBar>
-      </div>
+                {/* SEARCH INPUT */}
+                <div className={classes.search}>
+                  <div className={classes.searchIcon}>
+                    <SearchIcon />
+                  </div>
+                  <InputBase
+                    placeholder={languageContent[value.language].search}
+                    classes={{
+                      root: classes.inputRoot,
+                      input: classes.inputInput,
+                    }}
+                  />
+                </div>
+              </Toolbar>
+            </AppBar>
+          </div>
+        )}
+      </LanguageContext.Consumer>
     );
   }
 }
