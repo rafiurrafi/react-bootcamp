@@ -3,7 +3,7 @@ import React from "react";
 import TodoList from "./TodoList";
 
 const Todos = (props) => {
-  const { todos, onRemoveTodos, onToggleTodos } = props;
+  const { todos, onRemoveTodos, onToggleTodos, onEditTodos } = props;
   return (
     <List>
       {todos.map((todo) => (
@@ -12,6 +12,7 @@ const Todos = (props) => {
           todo={todo}
           onRemoveTodos={onRemoveTodos}
           onToggleTodos={onToggleTodos}
+          onEditTodos={onEditTodos}
         />
       ))}
     </List>

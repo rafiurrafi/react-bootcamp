@@ -27,6 +27,12 @@ const TodoApp = (props) => {
     );
     setTodos(newTodos);
   };
+  const editTodos = (id, task) => {
+    const editedTodos = todos.map((todo) =>
+      todo._id === id ? { ...todo, task: task } : todo
+    );
+    setTodos(editTodos);
+  };
   return (
     <div>
       <Navbar />
@@ -40,6 +46,7 @@ const TodoApp = (props) => {
               todos={todos}
               onRemoveTodos={removeTodos}
               onToggleTodos={toggleTodos}
+              onEditTodos={editTodos}
             />
           </Grid>
         </Grid>
