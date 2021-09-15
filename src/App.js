@@ -1,20 +1,18 @@
-import React from "react";
-import Navbar from "./navbar";
-import Form from "./form";
-import PageContent from "./pageContent";
-import ThemeProvider from "./contexts/themeContext";
-import LanguageProvider from "./contexts/languageContext";
+import React, { useReducer } from "react";
+
+function reducer(state, action) {
+  if (action.type === "INCREMENT") return { count: state.count + 1 };
+  else if (action.type === "DECREMENT") return { count: state.count - 1 };
+}
 
 const App = (props) => {
+  const [state, dispatch] = useReducer(reducer, { count: 0 });
   return (
-    <ThemeProvider>
-      <PageContent>
-        <LanguageProvider>
-          <Navbar />
-          <Form />
-        </LanguageProvider>
-      </PageContent>
-    </ThemeProvider>
+    <div>
+      <p>{state.count}</p>
+      <button onClick={() => dispatch({ type: "INCREMENT" })}>+Add</button>
+      <button onClick={() => dispatch({ type: "DECREMENT" })}>-Subtract</button>
+    </div>
   );
 };
 
