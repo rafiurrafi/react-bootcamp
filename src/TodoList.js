@@ -6,10 +6,9 @@ import Divider from "@material-ui/core/Divider";
 import { TodosContext } from "./context/todos.context";
 
 function TodoList() {
-  const { todos, removeTodo, toggleTodo, editTodo } = useContext(TodosContext);
+  const { todos, dispatch } = useContext(TodosContext);
   if (todos.length)
     return (
-      
       <Paper>
         <List>
           {todos.map((todo, i) => (
@@ -19,9 +18,11 @@ function TodoList() {
               <Todo
                 {...todo}
                 key={todo.id}
-                removeTodo={removeTodo}
-                toggleTodo={toggleTodo}
-                editTodo={editTodo}
+                removeTodo={() => {
+                  dispatch({ type: "REMOVE", id: todo.id });
+                }}
+                toggleTodo={() => dispatch({ type: "TOGGLE", id: todo.id })}
+                // editTodo={editTodo}
               />
               {i < todos.length - 1 && <Divider />}
             </React.Fragment>
