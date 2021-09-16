@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Checkbox,
   IconButton,
@@ -10,19 +10,20 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 import useToggleHook from "./hooks/useToggleHook";
 import TodoEditForm from "./todoEditForm";
+import { ThemeContext } from "./contexts/todos.context";
 
 const TodoList = (props) => {
-  const { todo, onRemoveTodos, onToggleTodos, onEditTodos } = props;
+  const { todo, removeTodos, toggleTodos } = useContext(ThemeContext);
   const [openEditForm, setOpenEditForm] = useToggleHook(false);
   return (
     <div>
       {openEditForm ? (
-        <TodoEditForm todo={todo} onEditTodos={onEditTodos} />
+        <TodoEditForm />
       ) : (
         <ListItem>
           <Checkbox
             checked={todo.completed}
-            onChange={() => onToggleTodos(todo._id)}
+            onChange={() => toggleTodos(todo._id)}
           />
           <ListItemText
             style={{ textDecoration: todo.completed ? "line-through" : "none" }}
@@ -30,7 +31,7 @@ const TodoList = (props) => {
             {todo.task}
           </ListItemText>
           <ListItemSecondaryAction>
-            <IconButton onClick={() => onRemoveTodos(todo._id)}>
+            <IconButton onClick={() => removeTodos(todo._id)}>
               <DeleteIcon />
             </IconButton>
             <IconButton onClick={setOpenEditForm}>

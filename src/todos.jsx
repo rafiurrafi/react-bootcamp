@@ -1,19 +1,14 @@
 import { List } from "@material-ui/core";
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "./contexts/todos.context";
 import TodoList from "./TodoList";
 
 const Todos = (props) => {
-  const { todos, onRemoveTodos, onToggleTodos, onEditTodos } = props;
+  const { todos } = useContext(ThemeContext);
   return (
     <List>
       {todos.map((todo) => (
-        <TodoList
-          key={todo._id}
-          todo={todo}
-          onRemoveTodos={onRemoveTodos}
-          onToggleTodos={onToggleTodos}
-          onEditTodos={onEditTodos}
-        />
+        <TodoList key={todo._id} />
       ))}
     </List>
   );

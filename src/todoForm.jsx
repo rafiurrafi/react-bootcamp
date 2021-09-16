@@ -1,14 +1,15 @@
 import { TextField } from "@material-ui/core";
-import React, { useState } from "react";
-
+import React, { useContext, useState } from "react";
+import { ThemeContext } from "./contexts/todos.context";
 const TodoForm = (props) => {
-  const { onAddTodos } = props;
+  const [addTodos] = useContext(ThemeContext);
   const [task, setTask] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddTodos(task);
+    addTodos(task);
     setTask("");
   };
+  console.log(useContext(ThemeContext));
   return (
     <form onSubmit={handleSubmit}>
       <TextField
