@@ -1,34 +1,17 @@
 import React from "react";
-import About from "./components/about";
-import Contact from "./components/contact";
-import Header from "./components/header";
-import Home from "./components/home";
+import CardList from "./components/cardList";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      page: "home",
-    };
-    this.changePage = this.changePage.bind(this);
-  }
-  changePage(page) {
-    console.log(page);
-    this.setState({ page: page });
-  }
-  renderPage() {
-    const { page } = this.state;
-    if (page === "home") return <Home />;
-    else if (page === "about") return <About />;
-    else return <Contact />;
+  state = {
+    monsters: [],
+  };
+  componentDidMount() {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((monsters) => this.setState({ monsters }));
   }
   render() {
-    return (
-      <div>
-        <Header page={this.state.page} onChangePage={this.changePage} />{" "}
-        {this.renderPage()}
-      </div>
-    );
+    return <CardList monsters={this.state.monsters} />;
   }
 }
 
