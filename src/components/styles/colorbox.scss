@@ -24,6 +24,19 @@
     bottom: 0;
     padding-bottom: 5px;
   }
+  .copy-overlay {
+    opacity: 0;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+    transition: transform 0.6s;
+    position: absolute;
+    &.show {
+      z-index: 1;
+      opacity: 1;
+      transform: scale(50);
+    }
+  }
 }
 .copy-button {
   height: 20px;
