@@ -29,7 +29,12 @@ class Palette extends React.Component {
         />
         <div className="palette-colors">
           {colors[this.state.level].map((color) => (
-            <ColorBox background={color[format]} name={color.name} />
+            <ColorBox
+              background={color[format]}
+              name={color.name}
+              key={color.id}
+              id={color.id}
+            />
           ))}
         </div>
       </div>
