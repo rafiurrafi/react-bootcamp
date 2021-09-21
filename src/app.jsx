@@ -4,9 +4,13 @@ import "./app.css";
 class App extends React.Component {
   render() {
     return (
-      <div>
-        <TodoApp />
-      </div>
+      // Todo app
+      // <div>
+      //   <TodoApp />
+      // </div>
+
+      // the war begins
+      <div>War begins</div>
     );
   }
 }
