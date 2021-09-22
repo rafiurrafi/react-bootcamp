@@ -12,12 +12,12 @@ class TodoForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.onAddTask(this.state.task);
+    this.setState({ task: "" });
   }
   handleChange(e) {
     this.setState({ task: e.target.value });
   }
   render() {
-    console.log(this.props);
     return (
       <Paper>
         <form onSubmit={this.handleSubmit}>

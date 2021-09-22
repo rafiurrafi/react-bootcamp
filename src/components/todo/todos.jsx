@@ -1,15 +1,6 @@
-import {
-  Checkbox,
-  IconButton,
-  List,
-  ListItem,
-  ListItemSecondaryAction,
-  ListItemText,
-  Paper,
-} from "@material-ui/core";
-import DeleteIcon from "@material-ui/icons/Delete";
-import EditIcon from "@material-ui/icons/Edit";
-import React, { Component } from "react";
+import { List, Paper } from "@material-ui/core";
+import React from "react";
+import TodoList from "./todoList";
 
 class Todos extends React.Component {
   render() {
@@ -17,18 +8,7 @@ class Todos extends React.Component {
       <Paper>
         <List>
           {this.props.todos.map((todo) => (
-            <ListItem key={todo.id}>
-              <Checkbox />
-              <ListItemText>{todo.task}</ListItemText>
-              <ListItemSecondaryAction>
-                <IconButton>
-                  <DeleteIcon />
-                </IconButton>
-                <IconButton>
-                  <EditIcon />
-                </IconButton>
-              </ListItemSecondaryAction>
-            </ListItem>
+            <TodoList key={todo.key} todo={todo} />
           ))}
         </List>{" "}
       </Paper>
