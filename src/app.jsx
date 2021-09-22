@@ -1,17 +1,21 @@
 import React from "react";
 import TodoApp from "./components/todo/todoApp";
 import "./app.css";
-import Home from "./components/battle/home";
-import About from "./components/battle/about";
-import Contact from "./components/battle/contact";
-import { Switch, Route, Link } from "react-router-dom";
+import Palette from "./components/color/palette";
+// import Home from "./components/battle/home";
+// import About from "./components/battle/about";
+// import Contact from "./components/battle/contact";
+// import { Switch, Route, Link } from "react-router-dom";
 class App extends React.Component {
   render() {
     return (
       // Todo app
-      <div>
-        <TodoApp />
-      </div>
+      // <div>
+      //   <TodoApp />
+      // </div>
+
+      // Color App
+      <Palette />
 
       // the war begins
       // <div>

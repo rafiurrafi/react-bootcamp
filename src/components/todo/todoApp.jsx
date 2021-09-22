@@ -25,6 +25,8 @@ class TodoApp extends React.Component {
       todos: [],
     };
     this.addTask = this.addTask.bind(this);
+    this.toggleTodos = this.toggleTodos.bind(this);
+    this.deleteTodos = this.deleteTodos.bind(this);
   }
   componentDidMount() {
     this.setState({ todos: [...this.props.initialTodos] });
@@ -33,6 +35,19 @@ class TodoApp extends React.Component {
     this.setState({
       todos: [...this.state.todos, { _id: uuid(), task, completed: false }],
     });
+  }
+  toggleTodos(id) {
+    console.log(id);
+    const updatedTodos = this.state.todos.map((todo) =>
+      todo._id === id ? { ...todo, completed: !todo.completed } : todo
+    );
+
+    this.setState({ todos: updatedTodos });
+  }
+  deleteTodos(id) {
+    console.log(id);
+    const updatedTodos = this.state.todos.filter((todo) => todo._id !== id);
+    this.setState({ todos: updatedTodos });
   }
   render() {
     const { classes } = this.props;
@@ -45,7 +60,11 @@ class TodoApp extends React.Component {
             <TodoForm onAddTask={this.addTask} />
           </Grid>
           <Grid item xs={10} md={6} lg={4}>
-            <Todos todos={this.state.todos} />
+            <Todos
+              todos={this.state.todos}
+              onToggleTodos={this.toggleTodos}
+              onDeleteTodos={this.deleteTodos}
+            />
           </Grid>
         </Grid>
       </div>

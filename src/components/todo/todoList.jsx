@@ -10,14 +10,22 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 class TodoList extends React.Component {
   render() {
-    const { todo } = this.props;
+    const { todo, onToggleTodos, onDeleteTodos } = this.props;
+    const { completed } = todo;
     return (
       <ListItem>
-        <Checkbox />
-        <ListItemText>{todo.task}</ListItemText>
+        <Checkbox
+          checked={todo.completed}
+          onChange={() => onToggleTodos(todo._id)}
+        />
+        <ListItemText
+          style={{ textDecoration: completed ? "line-through" : "none" }}
+        >
+          {todo.task}
+        </ListItemText>
         <ListItemSecondaryAction>
           <IconButton>
-            <DeleteIcon />
+            <DeleteIcon onClick={() => onDeleteTodos(todo._id)} />
           </IconButton>
           <IconButton>
             <EditIcon />
