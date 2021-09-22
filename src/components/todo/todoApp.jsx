@@ -4,6 +4,7 @@ import Navbar from "./navbar";
 import TodoForm from "./todoForm";
 import { withStyles } from "@material-ui/styles";
 import uuid from "uuid/v4";
+import Todos from "./todos";
 
 const styles = {
   spacing: {
@@ -39,9 +40,12 @@ class TodoApp extends React.Component {
       <div>
         <Navbar />
         <div className={classes.spacing} />
-        <Grid container justifyContent="center">
+        <Grid container justifyContent="center" spacing={2}>
           <Grid item xs={10} md={6} lg={4}>
             <TodoForm onAddTask={this.addTask} />
+          </Grid>
+          <Grid item xs={10} md={6} lg={4}>
+            <Todos todos={this.state.todos} />
           </Grid>
         </Grid>
       </div>
