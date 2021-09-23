@@ -28,10 +28,10 @@ const TodoApp = (props) => {
     setTodos(updatedTodos);
   }
   function editTodos(id, task) {
-    const todos = todos.map((todo) =>
+    const updatedTodos = todos.map((todo) =>
       todo._id === id ? { ...todo, task } : todo
     );
-    setTodos(todos);
+    setTodos(updatedTodos);
   }
   function deleteTodos(id) {
     const updatedTodos = todos.filter((todo) => todo._id !== id);
