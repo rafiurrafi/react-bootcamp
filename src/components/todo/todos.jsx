@@ -4,7 +4,7 @@ import TodoList from "./todoList";
 
 class Todos extends React.Component {
   render() {
-    const { onToggleTodos, onDeleteTodos } = this.props;
+    const { onToggleTodos, onDeleteTodos, onEditTodos } = this.props;
     return (
       <Paper>
         <List>
@@ -12,6 +12,7 @@ class Todos extends React.Component {
             <TodoList
               key={todo.key}
               todo={todo}
+              onEditTodos={onEditTodos}
               onToggleTodos={onToggleTodos}
               onDeleteTodos={onDeleteTodos}
             />

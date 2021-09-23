@@ -2,37 +2,31 @@ import React from "react";
 import TodoApp from "./components/todo/todoApp";
 import "./app.css";
 import Palette from "./components/color/palette";
-// import Home from "./components/battle/home";
-// import About from "./components/battle/about";
-// import Contact from "./components/battle/contact";
-// import { Switch, Route, Link } from "react-router-dom";
+import seedColors from "./seedColors";
+import Home from "./components/battle/home";
+import About from "./components/battle/about";
+import Contact from "./components/battle/contact";
+import { Switch, Route, Link } from "react-router-dom";
+import Food from "./components/battle/food";
 class App extends React.Component {
   render() {
     return (
       // Todo app
-      // <div>
-      //   <TodoApp />
-      // </div>
+      <div>
+        <TodoApp />
+      </div>
 
       // Color App
-      <Palette />
+      // <Palette {...seedColors[4]} />
 
       // the war begins
       // <div>
-      //   <Link to="/about/r">About</Link>
-      //   <Link to="/about/c">About-c</Link>
-      //   <Link to="/contact">Contact</Link>
-      //   <Link to="/Home">Home</Link>
-      //   <Switch>
-      //     <Route path="/about/r" render={() => <About name="Adimurai" />} />
-      //     <Route path="/about/c" component={() => <About name="boxing" />} />
-      //     <Route
-      //       path="/contact"
-      //       component={() => <Contact name="Katrian" />}
-      //       name="Hamid"
-      //     />
-      //     <Route path="/" component={Home} />
-      //   </Switch>
+      //   <Route
+      //     path="/food/:name"
+      //     render={(props) => <Food name={props.match.params.name} {...props} />}
+      //   />
+      //   <Route path="/food/tiger" render={() => <Food name="tiger" />} />
+      //   <Route path="/food/snake" render={() => <Food name="snake" />} />
       // </div>
     );
   }
