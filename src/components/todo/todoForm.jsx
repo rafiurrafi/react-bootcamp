@@ -1,35 +1,22 @@
 import { TextField, Paper } from "@material-ui/core";
-import React from "react";
-class TodoForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      task: "",
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-  }
-  handleSubmit(e) {
+import React, { useState } from "react";
+const TodoForm = (props) => {
+  const [task, setTask] = useState("");
+  function handleSubmit(e) {
     e.preventDefault();
-    this.props.onAddTask(this.state.task);
-    this.setState({ task: "" });
+    props.onAddTask(task);
+    setTask("");
   }
-  handleChange(e) {
-    this.setState({ task: e.target.value });
+  function handleChange(e) {
+    setTask(e.target.value);
   }
-  render() {
-    return (
-      <Paper>
-        <form onSubmit={this.handleSubmit}>
-          <TextField
-            value={this.state.task}
-            onChange={this.handleChange}
-            fullWidth
-          />
-        </form>
-      </Paper>
-    );
-  }
-}
+  return (
+    <Paper>
+      <form onSubmit={handleSubmit}>
+        <TextField value={task} onChange={handleChange} fullWidth />
+      </form>
+    </Paper>
+  );
+};
 
 export default TodoForm;
