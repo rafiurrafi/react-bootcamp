@@ -1,5 +1,5 @@
 import React, { createContext } from "react";
-import uuid from "./uuid/v4";
+import uuid from "uuid/v4";
 export const TodosContext = createContext();
 const initialTodos = [
   { _id: uuid(), task: "Todo", completed: false },

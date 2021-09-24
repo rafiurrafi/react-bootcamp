@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   Checkbox,
   IconButton,
@@ -9,9 +9,12 @@ import {
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 import EditForm from "./editForm";
+import { TodosContext } from "./contexts/todos.context";
 const TodoList = (props) => {
+  const todosContext = useContext(TodosContext);
+  const { toggleTodos, deleteTodos } = todosContext;
   const [isEditing, setIsEditing] = useState(false);
-  const { todo, onToggleTodos, onDeleteTodos, onEditTodos } = props;
+  const { todo } = props;
   const { completed } = todo;
   function handleToggleEdit() {
     setIsEditing(!isEditing);
@@ -19,16 +22,12 @@ const TodoList = (props) => {
   return (
     <>
       {isEditing ? (
-        <EditForm
-          todo={todo}
-          onToggleEdit={handleToggleEdit}
-          onEditTodos={onEditTodos}
-        />
+        <EditForm todo={todo} onToggleEdit={handleToggleEdit} />
       ) : (
         <ListItem>
           <Checkbox
             checked={todo.completed}
-            onChange={() => onToggleTodos(todo._id)}
+            onChange={() => toggleTodos(todo._id)}
           />
           <ListItemText
             style={{ textDecoration: completed ? "line-through" : "none" }}
@@ -37,7 +36,7 @@ const TodoList = (props) => {
           </ListItemText>
           <ListItemSecondaryAction>
             <IconButton>
-              <DeleteIcon onClick={() => onDeleteTodos(todo._id)} />
+              <DeleteIcon onClick={() => deleteTodos(todo._id)} />
             </IconButton>
             <IconButton onClick={handleToggleEdit}>
               <EditIcon />

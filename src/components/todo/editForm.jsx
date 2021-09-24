@@ -1,7 +1,10 @@
 import { TextField } from "@material-ui/core";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { TodosContext } from "./contexts/todos.context";
 const EditForm = (props) => {
   const [task, setTask] = useState("");
+  const todosContext = useContext(TodosContext);
+  const { editTodos } = todosContext;
   useEffect(() => {
     setTask(props.todo.task);
     console.log(task);
@@ -11,7 +14,7 @@ const EditForm = (props) => {
   }
   function handleSubmit(e) {
     e.preventDefault();
-    props.onEditTodos(props.todo._id, task);
+    editTodos(props.todo._id, task);
     props.onToggleEdit();
   }
   return (
