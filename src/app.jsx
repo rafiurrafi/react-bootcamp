@@ -12,22 +12,22 @@ class App extends React.Component {
   render() {
     return (
       // Todo app
-      <div>
-        <TodoApp />
-      </div>
+      // <div>
+      //   <TodoApp />
+      // </div>
 
       // Color App
       // <Palette {...seedColors[4]} />
 
       // the war begins
-      // <div>
-      //   <Route
-      //     path="/food/:name"
-      //     render={(props) => <Food name={props.match.params.name} {...props} />}
-      //   />
-      //   <Route path="/food/tiger" render={() => <Food name="tiger" />} />
-      //   <Route path="/food/snake" render={() => <Food name="snake" />} />
-      // </div>
+      <div>
+        <Route
+          path="/food/:name"
+          render={(props) => <Food name={props.match.params.name} {...props} />}
+        />
+        <Route path="/food/tiger" render={() => <Food name="tiger" />} />
+        <Route path="/food/snake" render={() => <Food name="snake" />} />
+      </div>
     );
   }
 }
