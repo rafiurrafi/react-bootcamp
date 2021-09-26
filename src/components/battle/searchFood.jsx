@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import Food from "./food";
 
 class SearchFood extends React.Component {
   constructor(props) {
@@ -7,11 +9,8 @@ class SearchFood extends React.Component {
       query: "",
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  handleSubmit(e) {
-    e.preventDefault();
-  }
+
   handleChange(e) {
     this.setState({ query: e.target.value });
   }
@@ -19,14 +18,14 @@ class SearchFood extends React.Component {
     return (
       <div>
         <h1>Search for a food</h1>
-        <form onSubmit={this.handleSubmit}>
+        <form>
           <input
             type="text"
             value={this.state.query}
             onChange={this.handleChange}
             placeholder="Search food"
           />
-          <button>Search</button>
+          <Link to={`/food/${this.state.query}`}>Search</Link>
         </form>
       </div>
     );

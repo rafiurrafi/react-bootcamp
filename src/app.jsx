@@ -8,6 +8,7 @@ import About from "./components/battle/about";
 import Contact from "./components/battle/contact";
 import { Switch, Route, Link } from "react-router-dom";
 import Food from "./components/battle/food";
+import SearchFood from "./components/battle/searchFood";
 class App extends React.Component {
   render() {
     return (
@@ -27,6 +28,7 @@ class App extends React.Component {
         />
         <Route path="/food/tiger" render={() => <Food name="tiger" />} />
         <Route path="/food/snake" render={() => <Food name="snake" />} />
+        <Route path="/" render={() => <SearchFood />} />
       </div>
     );
   }
