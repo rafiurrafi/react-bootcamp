@@ -6,6 +6,9 @@
   border: 1px solid #064420;
   border-radius: 5px 15px;
   transition: all 0.3s;
+  font-family: inherit;
+  font-weight: 700;
+  letter-spacing: 1px;
   &:hover {
     color: white;
     background-color: #064420;

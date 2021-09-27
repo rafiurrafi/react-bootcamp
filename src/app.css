@@ -5,15 +5,9 @@
 }
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 body {
+  font-family: "Stick No Bills", sans-serif;
   font-size: 1.6rem;
-}
-a {
-  margin: 10px;
-}
-img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
 }
