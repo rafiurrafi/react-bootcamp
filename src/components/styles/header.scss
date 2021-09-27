@@ -1,15 +1,16 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 5rem;
+  height: 6rem;
   width: 98.5vw;
-  padding: 1.5rem 0;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 2;
   background-color: rgba(0, 0, 0, 0.259);
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   &__logo-container {
     width: 100px;
   }

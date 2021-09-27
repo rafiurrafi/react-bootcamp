@@ -10,8 +10,10 @@ class Slide extends React.Component {
           backgroundImage: `radial-gradient(circle, #00000042, #00000000, #00000000), url('${imgSrc}')`,
         }}
       >
-        <h1>{heading}</h1>
-        <p>{text}</p>
+        <div className="row">
+          <h1>{heading}</h1>
+          <p>{text}</p>
+        </div>
       </div>
     );
   }
