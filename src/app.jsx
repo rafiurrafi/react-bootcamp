@@ -1,5 +1,6 @@
 import React from "react";
 import "./app.css";
+import Footer from "./components/footer";
 import Header from "./components/header";
 import SlideContainer from "./components/slideContainer";
 
@@ -9,6 +10,7 @@ class App extends React.Component {
       <div>
         <Header />
         <SlideContainer />
+        <Footer />
       </div>
     );
   }
