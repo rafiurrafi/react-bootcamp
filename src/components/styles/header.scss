@@ -15,5 +15,8 @@
     width: 50px;
   }
   &__menu {
+    & > * {
+      margin-left: 1.5rem;
+    }
   }
 }

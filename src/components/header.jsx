@@ -1,6 +1,7 @@
 import React from "react";
 import "./styles/header.scss";
 import logo from "../sunset-logo.png";
+import Button from "./common/button";
 class Header extends React.Component {
   render() {
     return (
@@ -9,15 +10,9 @@ class Header extends React.Component {
           <img className="header__logo" src={logo} alt="sunset-logo" />
         </div>
         <div className="header__menu">
-          <a className="btn" href="#">
-            What's new
-          </a>
-          <a className="btn" href="#">
-            Join us
-          </a>
-          <a className="btn" href="#">
-            Login
-          </a>
+          <Button text="What's new" />
+          <Button text="Join us" />
+          <Button text="Login" />
         </div>
       </div>
     );

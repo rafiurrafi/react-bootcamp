@@ -1,0 +1,16 @@
+.btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 1rem 1.5rem;
+  border: 1px solid #064420;
+  border-radius: 5px 15px;
+  transition: all 0.3s;
+  &:hover {
+    color: white;
+    background-color: #064420;
+  }
+  &:focus {
+    outline: none;
+  }
+}
