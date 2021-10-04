@@ -1,9 +1,14 @@
 import React from "react";
 import "./app.css";
+import HomePage from "./components/homepage";
 
 class App extends React.Component {
   render() {
-    return <div>Crwn projects</div>;
+    return (
+      <div>
+        <HomePage />
+      </div>
+    );
   }
 }
 
