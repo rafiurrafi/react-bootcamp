@@ -7,9 +7,10 @@ const MenuItem = (props) => {
     backgroudPosition: "center",
   };
   return (
-    <div className={`menu-item ${props.size}`} style={styles}>
+    <div className={`menu-item ${props.size}`}>
+      <div className="menu-background" style={styles} />
       <div className="content">
-        <h1 className="title">{props.title}</h1>
+        <h1 className="title">{props.title.toUpperCase()}</h1>
         <span className="subtitle">Shop now</span>
       </div>
     </div>
