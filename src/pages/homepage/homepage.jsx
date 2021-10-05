@@ -5,7 +5,7 @@ import Directory from "../../components/directory/directory";
 const HomePage = (props) => {
   return (
     <div className="homepage">
-      <Directory />
+      <Directory history={props.history} />
     </div>
   );
 };
