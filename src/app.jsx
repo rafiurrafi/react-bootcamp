@@ -1,10 +1,10 @@
 import React from "react";
-import Counter from "./practise/counter";
+import Toggler from "./practise/toggler";
 
 const App = () => {
   return (
     <div>
-      <Counter />
+      <Toggler />
     </div>
   );
 };
