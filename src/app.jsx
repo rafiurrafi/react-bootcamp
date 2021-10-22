@@ -1,12 +1,10 @@
 import React from "react";
-import Input from "./practise/input";
-import Toggler from "./practise/toggler";
+import CounterClass from "./practise/counterClass";
 
 const App = () => {
   return (
     <div>
-      <Toggler />
-      <Input />
+      <CounterClass />
     </div>
   );
 };
