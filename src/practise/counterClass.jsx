@@ -24,7 +24,7 @@ class CounterClass extends React.Component {
     this.setState({ date: new Date() });
   }
   render() {
-    const { count, date } = this.state;
+    const { date } = this.state;
     return (
       <div>
         <h1>{date.toLocaleTimeString()}</h1>
