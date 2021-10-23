@@ -3,13 +3,47 @@
   padding: 0;
   box-sizing: border-box;
 }
-body {
-}
 .header {
   background-color: #131921;
+  display: flex;
+  align-items: center;
   &__logo {
     height: 40px;
     color: white;
     margin: 10px 20px;
+  }
+  &__search-box {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    background-color: #cd9042;
+  }
+  &__search-input {
+    padding: 7px;
+    flex: 1;
+    &:focus {
+      outline: none;
+    }
+  }
+  &__nav {
+    display: flex;
+    &-link {
+      &:first-child {
+        margin-left: 1rem;
+      }
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
+      span {
+        color: white;
+        display: block;
+        &:first-of-type {
+          font-size: 70%;
+        }
+      }
+    }
+    &-basket {
+      text-align: center;
+    }
   }
 }

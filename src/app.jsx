@@ -1,9 +1,9 @@
 import React from "react";
-import TodoApp from "./practise/todoApp";
-// import AmazonApp from "./amazon/amazonApp";
+// import TodoApp from "./practise/todoApp";
+import AmazonApp from "./amazon/amazonApp";
 import "./app.css";
 const App = () => {
-  return <TodoApp />;
+  return <AmazonApp />;
 };
 
 export default App;

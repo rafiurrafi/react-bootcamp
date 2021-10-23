@@ -1,5 +1,5 @@
-import { Paper, TextField } from "@material-ui/core";
-import React, { Component } from "react";
+import { TextField } from "@material-ui/core";
+import React from "react";
 
 class TodoForm extends React.Component {
   constructor() {

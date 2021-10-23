@@ -25,6 +25,11 @@ class TodoApp extends React.Component {
               <TodoForm onAddTodos={this.addTodos} />
             </Paper>
           </Grid>
+          <Grid item xs={10} md={6} lg={3} spacing={2}>
+            <Paper>
+              <TodoForm onAddTodos={this.addTodos} />
+            </Paper>
+          </Grid>
         </Grid>
         {/* todolist  */}
       </div>
