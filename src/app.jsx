@@ -1,10 +1,14 @@
-import React from "react";
-import CounterClass from "./practise/counterClass";
-
+import React, { useState } from "react";
+// import AmazonApp from "./amazon/amazonApp";
+import Counter from "./practise/counter";
 const App = () => {
+  const [show, setShow] = useState(true);
   return (
     <div>
-      <CounterClass />
+      {/* <AmazonApp /> */}
+      {show && <Counter />}
+      <br />
+      <button onClick={() => setShow(!show)}>toggle</button>
     </div>
   );
 };
