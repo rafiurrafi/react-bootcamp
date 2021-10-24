@@ -1,11 +1,13 @@
 import ReactDOM from "react-dom";
 // import App from "./app";
 import { BrowserRouter } from "react-router-dom";
-import AmazonApp from "./amazon/amazonApp";
+import PractiseApp from "./practise/practiseApp";
+// import AmazonApp from "./amazon/amazonApp";
 ReactDOM.render(
   <BrowserRouter>
     {/* <App /> */}
-    <AmazonApp />
+    {/* <AmazonApp /> */}
+    <PractiseApp />
   </BrowserRouter>,
   document.querySelector("#root")
 );
