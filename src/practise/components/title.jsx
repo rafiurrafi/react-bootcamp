@@ -5,4 +5,4 @@ const Title = (props) => {
   return <h1>This is our practise app field</h1>;
 };
 
-export default Title;
+export default React.memo(Title);
