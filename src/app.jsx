@@ -3,11 +3,13 @@ import React from "react";
 // import AmazonApp from "./amazon/amazonApp";
 import "./app.css";
 import Cards from "./components/cards";
+import SearchBox from "./components/searchBox";
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       monsters: [],
+      searchField: "",
     };
   }
   componentDidMount() {
@@ -16,7 +18,19 @@ class App extends React.Component {
       .then((data) => this.setState({ monsters: data }));
   }
   render() {
-    return <Cards monsters={this.state.monsters} />;
+    const { monsters, searchField } = this.state;
+    const filterdMonster = monsters.filter((monster) =>
+      monster.name.toLowerCase().includes(searchField.toLowerCase())
+    );
+    return (
+      <>
+        <SearchBox
+          searchField={this.state.searchField}
+          onSearchChange={(e) => this.setState({ searchField: e.target.value })}
+        />
+        <Cards monsters={filterdMonster} />
+      </>
+    );
   }
 }
 
