@@ -1,0 +1,10 @@
+.form-input {
+  display: block;
+  margin-bottom: 20px;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #777;
+  &:focus {
+    outline: none;
+  }
+}
