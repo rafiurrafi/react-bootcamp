@@ -1,0 +1,12 @@
+.header {
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  align-items: center;
+}
+.options {
+  .option {
+    margin-left: 20px;
+  }
+}

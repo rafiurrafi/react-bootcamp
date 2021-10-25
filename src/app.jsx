@@ -5,14 +5,18 @@ import "./app.css";
 import Homepage from "./pages/homepage/homepage";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import ShopPage from "./pages/shop/shopPage";
+import Header from "./components/header/header";
 class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <Switch>
-          <Route path="/shop" component={ShopPage} />
-          <Route path="/" component={Homepage} />
-        </Switch>
+        <div>
+          <Header />
+          <Switch>
+            <Route path="/shop" component={ShopPage} />
+            <Route path="/" component={Homepage} />
+          </Switch>
+        </div>
       </BrowserRouter>
     );
   }
