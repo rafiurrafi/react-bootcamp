@@ -1,6 +1,8 @@
 import React from "react";
 import Input from "../input/input";
 
+import { signInWithGoogle } from "../../firebase/firebase.utils";
+
 class Signin extends React.Component {
   constructor(props) {
     super(props);
@@ -28,6 +30,8 @@ class Signin extends React.Component {
             value={this.state.password}
             onChange={this.handleChange}
           />
+          <input type="submit" value="Sign in" />
+          <button onClick={signInWithGoogle}> Sign in with google</button>
         </form>
       </div>
     );
