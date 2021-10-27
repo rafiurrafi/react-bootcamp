@@ -1,11 +1,12 @@
 import React from "react";
-import Clock from "./components/clock";
+import GithubUser from "./components/githubUser";
+import Quote from "./components/quote";
+import Timer from "./components/timer";
 const PractiseApp = (props) => {
   const [showClock, setShowClock] = React.useState(false);
   return (
     <div>
-      <button onClick={() => setShowClock(!showClock)}>Toggle</button>
-      {showClock ? <Clock /> : <h1>Clock is offf</h1>}
+      <GithubUser name="colt" />
     </div>
   );
 };

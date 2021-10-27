@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 
 export const BasketContext = createContext();
 const BasketProvider = ({ reducer, initialState, children }) => {
@@ -10,3 +10,4 @@ const BasketProvider = ({ reducer, initialState, children }) => {
 };
 
 export default BasketProvider;
+export const useStateValue = () => useContext(BasketContext);
