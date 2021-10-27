@@ -1,7 +1,16 @@
 import React from "react";
 
-const Post = () => {
-  return <h1>Post</h1>;
-};
+class Post extends React.Component {
+  componentDidMount() {
+    console.log("component did mount");
+  }
+  componentWillUnmount() {
+    console.log("Unmount");
+  }
+  render() {
+    console.log("Render");
+    return <div>Post {this.props.title}</div>;
+  }
+}
 
 export default Post;

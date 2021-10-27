@@ -1,16 +1,23 @@
-import { Switch } from "@material-ui/core";
-import React from "react";
-import { Route } from "react-router";
-import Home from "./components/home";
-import Post from "./components/post";
-import SignlePost from "./components/singlePost";
+import React, { useState } from "react";
+import Food from "./components/food";
+import { Switch, Route, Link } from "react-router-dom";
 const PractiseApp = (props) => {
+  const [search, setSearch] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
   return (
-    <Switch>
-      <Route path="/post/:id" component={SignlePost} />
-      <Route path="/post" component={Post} />
-      <Route path="/" component={Home} />
-    </Switch>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input value={search} onChange={(e) => setSearch(e.target.value)} />
+        <Link to={`/food/${search}`}>Go</Link>
+      </form>
+      <Switch>
+        <Route path="/food/:name" render={(props) => <Food {...props} />} />
+        <Route path="/" component={() => <h1>Home</h1>} />
+        <Route render={() => <h1>Not found</h1>} />
+      </Switch>
+    </div>
   );
 };
 
