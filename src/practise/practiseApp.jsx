@@ -1,12 +1,9 @@
 import React from "react";
-import GithubUser from "./components/githubUser";
-import Quote from "./components/quote";
-import Timer from "./components/timer";
+import Button from "./components/button";
 const PractiseApp = (props) => {
-  const [showClock, setShowClock] = React.useState(false);
   return (
     <div>
-      <GithubUser name="colt" />
+      <Button />
     </div>
   );
 };
