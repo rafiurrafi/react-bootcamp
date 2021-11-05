@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from "react";
+import Input from "./input";
 
 const Form = (props) => {
   const inputRef = useRef();
   useEffect(() => {
     inputRef.current.focus();
   }, []);
-  return <input ref={inputRef} type="text" placeholder="Your name" />;
+  return <Input ref={inputRef} type="text" text="Your name" />;
 };
 
 export default Form;
