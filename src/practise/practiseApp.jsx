@@ -1,10 +1,10 @@
 import React from "react";
-import Form from "./components/form";
+import Increment from "./components/increment";
 
 const PractiseApp = (props) => {
   return (
     <div>
-      <Form />
+      <Increment />
     </div>
   );
 };
