@@ -16,7 +16,7 @@ const PractiseApp = (props) => {
       <hr />
       <ShowCounter number={2} count={count2} />
       <Button onHandleIncrement={handleIncrementByFive}>
-        Increment By One
+        Increment By Five
       </Button>
     </div>
   );

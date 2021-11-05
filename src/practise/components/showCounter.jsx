@@ -5,4 +5,4 @@ const ShowCounter = (props) => {
   return <p>Counter 1 is {props.count}</p>;
 };
 
-export default ShowCounter;
+export default React.memo(ShowCounter);

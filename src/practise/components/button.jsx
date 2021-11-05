@@ -4,4 +4,4 @@ const Button = (props) => {
   return <button onClick={props.onHandleIncrement}>{props.children}</button>;
 };
 
-export default Button;
+export default React.memo(Button);
