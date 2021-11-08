@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../assets/PickBazar.png";
 import "../styles/header.scss";
 
 const Header = (props) => {
   return (
     <header className="header">
       <div className="container">
-        <Link to="/" className="logo">
-          Bazaar
+        <Link to="/" className="header__logo">
+          <img src={logo} alt="" />
         </Link>
         <nav className="main-nav">
           <ul>
