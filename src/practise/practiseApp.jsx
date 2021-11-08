@@ -1,10 +1,10 @@
 import React from "react";
-import Clicker from "./components/clicker";
+import TodoApp from "./components/todo/todoApp";
 
 const PractiseApp = (props) => {
   return (
     <div>
-      <Clicker />
+      <TodoApp />
     </div>
   );
 };
