@@ -1,12 +1,13 @@
 import React from "react";
 import Counter from "./components/counter";
-import Toggle from "./components/toggle";
+import InputHooks from "./components/inputHook";
 
 const PractiseApp = (props) => {
   return (
     <div>
       <Counter />
-      <Toggle />
+      {/* <Toggle /> */}
+      <InputHooks />
     </div>
   );
 };
