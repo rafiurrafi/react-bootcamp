@@ -1,10 +1,12 @@
 import React from "react";
-import Increment from "./components/increment";
+import Counter from "./components/counter";
+import Toggle from "./components/toggle";
 
 const PractiseApp = (props) => {
   return (
     <div>
-      <Increment />
+      <Counter />
+      <Toggle />
     </div>
   );
 };
