@@ -4,15 +4,21 @@ import "../styles/bannerContainer.scss";
 import React, { Component } from "react";
 import Slider from "react-slick";
 
+import offer_1 from "../assets/offer/offer-1.png";
+import offer_2 from "../assets/offer/offer-2.png";
+import offer_3 from "../assets/offer/offer-3.png";
+import offer_4 from "../assets/offer/offer-4.png";
+import offer_5 from "../assets/offer/offer-5.png";
+
 export default class Responsive extends Component {
   render() {
     var settings = {
-      dots: true,
-      infinite: false,
+      infinite: true,
       speed: 500,
-      slidesToShow: 4,
+      slidesToShow: 3,
       slidesToScroll: 1,
       initialSlide: 0,
+      centerPadding: 300,
       responsive: [
         {
           breakpoint: 1024,
@@ -20,7 +26,6 @@ export default class Responsive extends Component {
             slidesToShow: 3,
             slidesToScroll: 3,
             infinite: true,
-            dots: true,
           },
         },
         {
@@ -45,28 +50,19 @@ export default class Responsive extends Component {
         <div className="container">
           <Slider {...settings}>
             <div>
-              <h3>1</h3>
+              <img className="offer__img" src={offer_1} alt="offer-1" />
             </div>
             <div>
-              <h3>2</h3>
+              <img className="offer__img" src={offer_2} alt="offer-1" />
             </div>
             <div>
-              <h3>3</h3>
+              <img className="offer__img" src={offer_3} alt="offer-1" />
             </div>
             <div>
-              <h3>4</h3>
+              <img className="offer__img" src={offer_4} alt="offer-4" />
             </div>
             <div>
-              <h3>5</h3>
-            </div>
-            <div>
-              <h3>6</h3>
-            </div>
-            <div>
-              <h3>7</h3>
-            </div>
-            <div>
-              <h3>8</h3>
+              <img className="offer__img" src={offer_5} alt="offer-4" />
             </div>
           </Slider>
         </div>
