@@ -5,11 +5,12 @@ import BazaarApp from "./bazaar/bazaarApp";
 // import PractiseApp from "./practise/practiseApp";
 // import AmazonApp from "./amazon/amazonApp";
 ReactDOM.render(
-  <BrowserRouter>
-    {/* <App /> */}
-    {/* <AmazonApp /> */}
-    {/* <PractiseApp /> */}
-    <BazaarApp />
-  </BrowserRouter>,
+  // <BrowserRouter>
+  //   {/* <App /> */}
+  //   {/* <AmazonApp /> */}
+  //   {/* <PractiseApp /> */}
+  //   <BazaarApp />
+  // </BrowserRouter>,
+  <BazaarApp />,
   document.querySelector("#root")
 );

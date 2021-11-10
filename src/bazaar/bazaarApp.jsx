@@ -1,5 +1,5 @@
 import React from "react";
-import SimpleSlider from "./components/bannerContainer";
+// import SimpleSlider from "./components/bannerContainer";
 import BannerContainer from "./components/bannerContainer";
 import Header from "./components/header";
 import Hero from "./components/hero";
@@ -10,8 +10,9 @@ class BazaarApp extends React.Component {
       <div>
         <Header />
         <Hero />
-        {/* <BannerContainer /> */}
-        <SimpleSlider />
+        <BannerContainer />
+        {/* <SimpleSlider /> */}
+        <main className="home-main"></main>
       </div>
     );
   }
