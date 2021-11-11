@@ -3,6 +3,7 @@ import React from "react";
 import BannerContainer from "./components/bannerContainer";
 import Header from "./components/header";
 import Hero from "./components/hero";
+import MenuSidebar from "./components/menuSidebar";
 import "./styles/bazaarApp.scss";
 class BazaarApp extends React.Component {
   render() {
@@ -12,7 +13,9 @@ class BazaarApp extends React.Component {
         <Hero />
         <BannerContainer />
         {/* <SimpleSlider /> */}
-        <main className="home-main"></main>
+        <main className="home-main">
+          <MenuSidebar />
+        </main>
       </div>
     );
   }

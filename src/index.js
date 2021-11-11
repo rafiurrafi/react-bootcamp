@@ -8,8 +8,8 @@ ReactDOM.render(
   <BrowserRouter>
     {/* <App /> */}
     {/* <AmazonApp /> */}
-    <PractiseApp />
-    {/* <BazaarApp /> */}
+    {/* <PractiseApp /> */}
+    <BazaarApp />
   </BrowserRouter>,
   // <BazaarApp />,
   document.querySelector("#root")
