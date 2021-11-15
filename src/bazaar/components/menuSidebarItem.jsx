@@ -14,7 +14,7 @@ class MenuSidebarItem extends React.Component {
       <li key={menu._id} className="menu__sidebar-item">
         <div style={{ cursor: "pointer" }} onClick={this.handleDropdown}>
           <span>{menu.icon}</span> <span>{menu.title}</span>
-          <span>{dropdown ? menu.opened : menu.closed}</span>
+          <span>{!dropdown ? menu.opened : menu.closed}</span>
         </div>
         {/* {dropdown && (
           <ul className="menu__dropdown">
