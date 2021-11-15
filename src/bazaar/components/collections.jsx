@@ -1,4 +1,5 @@
 import React from "react";
+import CollectionItems from "./collectionItems";
 
 class Colleactions extends React.Component {
   render() {
@@ -6,7 +7,7 @@ class Colleactions extends React.Component {
     return (
       <div className="collections">
         {products.map((product) => (
-          <h1>{product.name}</h1>
+          <CollectionItems key={product._id} product={product} />
         ))}
       </div>
     );
