@@ -8,7 +8,7 @@
   background-color: var(--color-gray-light-1);
   &__item {
     position: relative;
-    padding: 1rem;
+    padding: 1.5rem 2rem;
     cursor: pointer;
     background-color: var(--color-white);
   }
@@ -29,7 +29,7 @@
     margin: 2rem 0;
   }
   &__price {
-    padding: 1rem;
+    padding: 1.5rem 0;
     font-weight: 700;
   }
 }

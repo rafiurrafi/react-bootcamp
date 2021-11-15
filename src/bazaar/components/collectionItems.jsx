@@ -1,4 +1,5 @@
 import React from "react";
+import CardButton from "./cardButton";
 
 const CollectionItems = (props) => {
   const { offer, name, img, price } = props.product;
@@ -7,7 +8,7 @@ const CollectionItems = (props) => {
       {offer && <small className="collections__offer">{offer}%</small>}
       <img className="collections__img" src={img} alt={name} />
       <p className="collections__price">$ {price}</p>
-      <button>Add</button>
+      <CardButton />
     </div>
   );
 };
