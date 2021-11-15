@@ -1,0 +1,35 @@
+.collections {
+  flex: 1;
+  padding-left: 2.5rem;
+  padding-top: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2.5rem;
+  background-color: var(--color-gray-light-1);
+  &__item {
+    position: relative;
+    padding: 1rem;
+    cursor: pointer;
+    background-color: var(--color-white);
+  }
+
+  &__offer {
+    display: inline-block;
+    color: white;
+    background-color: var(--primary-color);
+    padding: 0.5rem 1.2rem;
+    border-radius: 4px;
+
+    position: absolute;
+    top: 5%;
+    right: 5%;
+  }
+  &__img {
+    width: 22rem;
+    margin: 2rem 0;
+  }
+  &__price {
+    padding: 1rem;
+    font-weight: 700;
+  }
+}

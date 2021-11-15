@@ -6,6 +6,7 @@ const products = [
     img: "/img/fruites/Apples.jpg",
     stock: 10,
     price: 399.99,
+    offer: 20,
     shortDesc: "Nulla facilisi. Curabitur at lacus ac velit ornare lobortis.",
     description:
       "Cras sagittis. Praesent nec nisl a purus blandit viverra. Ut leo. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Fusce a quam.",
@@ -36,6 +37,7 @@ const products = [
     img: "/img/fruites/BrusselsSprouts.jpg",
     stock: 10,
     price: 399.99,
+    offer: 15,
     shortDesc: "Nulla facilisi. Curabitur at lacus ac velit ornare lobortis.",
     description:
       "Cras sagittis. Praesent nec nisl a purus blandit viverra. Ut leo. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Fusce a quam.",
@@ -76,6 +78,7 @@ const products = [
     img: "/img/fruites/chicken_thigh.jpg",
     stock: 10,
     price: 399.99,
+    offer: 10,
     shortDesc: "Nulla facilisi. Curabitur at lacus ac velit ornare lobortis.",
     description:
       "Cras sagittis. Praesent nec nisl a purus blandit viverra. Ut leo. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Fusce a quam.",

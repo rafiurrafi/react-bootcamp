@@ -1,5 +1,6 @@
 import React from "react";
 import CollectionItems from "./collectionItems";
+import "../styles/collections.scss";
 
 class Colleactions extends React.Component {
   render() {
