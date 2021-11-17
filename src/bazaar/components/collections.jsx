@@ -4,11 +4,15 @@ import "../styles/collections.scss";
 
 class Colleactions extends React.Component {
   render() {
-    const { products } = this.props;
+    const { products, onAddItemToCart } = this.props;
     return (
       <div className="collections">
         {products.map((product) => (
-          <CollectionItems key={product._id} product={product} />
+          <CollectionItems
+            key={product.id}
+            product={product}
+            onAddItemToCart={onAddItemToCart}
+          />
         ))}
       </div>
     );

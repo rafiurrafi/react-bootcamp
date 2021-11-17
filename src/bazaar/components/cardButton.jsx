@@ -12,6 +12,7 @@ class CardButton extends React.Component {
   };
   render() {
     const { count } = this.state;
+    const { id, onAddItemToCart } = this.props;
     return (
       <button className="card-button">
         {count > 0 && (
@@ -19,10 +20,10 @@ class CardButton extends React.Component {
             -
           </span>
         )}{" "}
-        <span className="card-button__text" onClick={this.handleIncrement}>
+        <span className="card-button__text" onClick={() => onAddItemToCart(id)}>
           {count ? count : "Add"}
         </span>
-        <span className="card-button__inc" onClick={this.handleIncrement}>
+        <span className="card-button__inc" onClick={() => onAddItemToCart(id)}>
           +
         </span>
       </button>
