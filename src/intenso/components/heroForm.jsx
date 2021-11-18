@@ -5,9 +5,11 @@ import errorIcon from "../assets/error-icon.svg";
 import feesIcon from "../assets/fees-icon.svg";
 import Select from "./common/select";
 import useInput from "./hooks/inputHooks";
+import Input from "./common/input";
 const HeroForm = (props) => {
   const [country, setCountry] = useInput("us");
   const [receivingMethod, setReceivingMethod] = useInput("mobile");
+  const [delivery, setDelivery] = useInput("");
   return (
     <div className="hero__form">
       <h6 className="heading__hexa">Send money abroad</h6>
@@ -30,17 +32,13 @@ const HeroForm = (props) => {
             { value: "laptop", text: "Laptop" },
           ]}
         />
-        <div className="form-group">
-          <label>Receiving Method</label>
-          <select className="form-control">
-            <option value="mobile">Mobile</option>
-          </select>
-        </div>
+        <Input
+          text="Delivery channel"
+          value={delivery}
+          onChange={setDelivery}
+          placeholder="Channel 1"
+        />
 
-        <div className="form-group">
-          <label>Delivery channel</label>
-          <input type="text" placeholder="Channel 1" className="form-control" />
-        </div>
         <div className="form-group">
           <label>Delivery channel</label>
           <div className="form-compound">
