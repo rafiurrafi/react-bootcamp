@@ -1,23 +1,31 @@
 import React from "react";
 import Button from "./common/button";
-import alermIcon from "../assets/alerm-icon.svg";
-import errorIcon from "../assets/error-icon.svg";
-import feesIcon from "../assets/fees-icon.svg";
 import Select from "./common/select";
 import useInput from "./hooks/inputHooks";
 import Input from "./common/input";
+
+import alermIcon from "../assets/alerm-icon.svg";
+import errorIcon from "../assets/error-icon.svg";
+import feesIcon from "../assets/fees-icon.svg";
+import dropIcon from "../assets/drop-icon.png";
 const HeroForm = (props) => {
   const [country, setCountry] = useInput("us");
   const [receivingMethod, setReceivingMethod] = useInput("mobile");
   const [delivery, setDelivery] = useInput("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Submitted");
+  };
   return (
     <div className="hero__form">
       <h6 className="heading__hexa">Send money abroad</h6>
-      <form>
+      <form onSubmit={handleSubmit}>
         <Select
           text="country"
           value={country}
           onChange={setCountry}
+          icon={dropIcon}
           options={[
             { value: "us", text: "USA" },
             { value: "pk", text: "PAK" },
@@ -27,6 +35,7 @@ const HeroForm = (props) => {
           text="Receiving Method"
           value={receivingMethod}
           onChange={setReceivingMethod}
+          icon={dropIcon}
           options={[
             { value: "mobile", text: "Mobile" },
             { value: "laptop", text: "Laptop" },
@@ -49,7 +58,7 @@ const HeroForm = (props) => {
           </div>
         </div>
         <div className="form-group">
-          <label>Recipient will receive</label>
+          <label>You send</label>
           <div className="form-compound">
             <input type="text" placeholder="100" />
             <select>
@@ -72,7 +81,7 @@ const HeroForm = (props) => {
           <p>Total to pay</p>
           <p>4,38</p>
         </div>
-        <Button label="Log in" full={true} size="bg" />
+        <Button type="submit" label="Log in" full={true} size="bg" />
       </form>
     </div>
   );
