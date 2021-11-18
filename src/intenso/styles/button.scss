@@ -1,9 +1,11 @@
 .btn {
   background-color: transparent;
-  border: 1px solid #ccc;
+  border: 1px solid #777;
   font-size: 1.6rem;
+  border-radius: 5px;
   &--sm {
-    width: 10rem;
+    min-width: 12rem;
+    padding: 1rem 1.3rem;
   }
   &--full {
     background-color: #408080;
