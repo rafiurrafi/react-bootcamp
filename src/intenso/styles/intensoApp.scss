@@ -5,6 +5,14 @@
 }
 html {
   font-size: 62.5%;
+  @media (max-width: 56.25em) {
+    //900px
+    font-size: 60%;
+  }
+  @media (max-width: 37.5em) {
+    //900px
+    font-size: 50%;
+  }
 }
 @font-face {
   font-family: "brands";
@@ -40,6 +48,10 @@ body {
 .container {
   max-width: 114rem;
   margin: 0 auto;
+  @media (max-width: 113rem) {
+    width: 100%;
+    padding: 0 2%;
+  }
 }
 .home-main {
   padding: 4rem 0;
@@ -47,6 +59,7 @@ body {
 .heading__primary {
   margin-bottom: 4rem;
   font-size: 4.5rem;
+  color: rgb(16, 91, 134);
 }
 .heading__hexa {
   text-align: center;

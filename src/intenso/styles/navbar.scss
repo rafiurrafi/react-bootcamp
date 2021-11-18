@@ -1,4 +1,8 @@
 .nav {
+  @media (max-width: 56.25em) {
+    //900px
+    display: none;
+  }
   &__main {
     list-style: none;
   }
