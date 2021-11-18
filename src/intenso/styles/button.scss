@@ -1,0 +1,13 @@
+.btn {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  font-size: 1.6rem;
+  &--sm {
+    width: 10rem;
+  }
+  &--full {
+    background-color: #408080;
+    color: #fff;
+    border: 1px solid #408080;
+  }
+}

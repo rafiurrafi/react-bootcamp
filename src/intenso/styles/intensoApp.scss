@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+@font-face {
+  font-family: "brands";
+  src: url(webfonts/fa-light-300.ttf);
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "brands";
+  src: url(webfonts/fa-brands-400.ttf);
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "brands";
+  src: url(webfonts/fa-solid-900.ttf);
+  font-style: normal;
+  font-weight: 900;
+}
+:root {
+  --color-primary: #408080;
+}
+
+body {
+  font-size: 1.6rem;
+  font-weight: 400;
+  background-image: url("../assets/home-bg.png");
+  background-size: cover;
+  background-position: center;
+  //   font-family: brands;
+  //   font-weight: 300;
+}
+.container {
+  max-width: 114rem;
+  margin: 0 auto;
+}

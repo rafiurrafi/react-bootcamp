@@ -1,0 +1,15 @@
+.nav {
+  &__main {
+    list-style: none;
+  }
+  &__item {
+    display: inline-block;
+    &:not(:first-child) {
+      margin-left: 2rem;
+    }
+  }
+  &__link {
+    text-decoration: none;
+    color: #408080;
+  }
+}

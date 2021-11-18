@@ -1,6 +1,12 @@
 import React from "react";
+import Header from "./components/header";
+import "./styles/intensoApp.scss";
 const IntensoApp = (props) => {
-  return <h1>IntensoApp</h1>;
+  return (
+    <div className="container">
+      <Header />
+    </div>
+  );
 };
 
 export default IntensoApp;
