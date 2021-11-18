@@ -6,6 +6,7 @@
     flex: 0 0 60%;
     align-self: flex-end;
     margin-right: 4rem;
+    padding: 4rem 0;
   }
   &__text {
     margin-bottom: 3rem;
@@ -25,9 +26,40 @@
   &__form {
     flex: 1;
     border: 2px solid rgb(16, 91, 134);
+    padding: 1.5rem 2.5rem;
+    .form-group {
+      margin-bottom: 2rem;
+    }
+    label {
+      font-size: 90%;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+    }
     .form-control {
       display: block;
       width: 100%;
+    }
+    .form-text-content {
+      display: flex;
+    }
+    .form-text {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      &:first-of-type {
+        margin-right: 1rem;
+      }
+      img {
+        display: inline-block;
+        margin-right: 0.5rem;
+      }
+    }
+    .form-pay {
+      font-weight: 900;
+      color: rgb(16, 91, 134);
+      display: flex;
+      justify-content: space-between;
+      margin: 2rem 0;
     }
   }
 }

@@ -4,9 +4,16 @@
   font-size: 1.6rem;
   border-radius: 5px;
   cursor: pointer;
+  display: inline-block;
   &--sm {
     min-width: 12rem;
     padding: 1rem 1.3rem;
+  }
+  &--bg {
+    width: 80%;
+    margin: 0 auto;
+    padding: 1rem 1.3rem;
+    display: block;
   }
   &--full {
     background-color: #408080;
