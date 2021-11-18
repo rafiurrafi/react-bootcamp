@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import img from "../assets/logo.png";
 import Button from "./common/button";
 import Navbar from "./navbar";
-const Header = (props) => {
+
+import "../styles/header.scss";
+const Header = () => {
   return (
     <header className="header">
       <Link>
