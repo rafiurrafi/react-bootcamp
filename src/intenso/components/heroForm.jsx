@@ -1,19 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "./common/button";
 import alermIcon from "../assets/alerm-icon.svg";
 import errorIcon from "../assets/error-icon.svg";
 import feesIcon from "../assets/fees-icon.svg";
+import Select from "./common/select";
 const HeroForm = (props) => {
+  const [country, setCountry] = useState("us");
+  const [receivingMethod, setReceivingMethod] = useState("mobile");
   return (
     <div className="hero__form">
       <h6 className="heading__hexa">Send money abroad</h6>
       <form>
-        <div className="form-group">
-          <label>Country</label>
-          <select className="form-control">
-            <option value="us">USA</option>
-          </select>
-        </div>
+        <Select
+          text="country"
+          value={country}
+          onChange={(e) => setCountry(e.target.value)}
+          options={[
+            { value: "us", text: "USA" },
+            { value: "pk", text: "PAK" },
+          ]}
+        />
+        <Select
+          text="Receiving Method"
+          value={receivingMethod}
+          onChange={(e) => setReceivingMethod(e.target.value)}
+          options={[
+            { value: "us", text: "USA" },
+            { value: "pk", text: "PAK" },
+          ]}
+        />
         <div className="form-group">
           <label>Receiving Method</label>
           <select className="form-control">
