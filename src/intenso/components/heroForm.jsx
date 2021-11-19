@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "./common/button";
-import Select from "./common/select";
+import Select, { SelectInput } from "./common/select";
 import useInput from "./hooks/inputHooks";
 import Input from "./common/input";
 
@@ -12,6 +12,8 @@ const HeroForm = (props) => {
   const [country, setCountry] = useInput("us");
   const [receivingMethod, setReceivingMethod] = useInput("mobile");
   const [delivery, setDelivery] = useInput("");
+  const [sendMoney, setSendMoney] = useInput("us");
+  const [receiveMoney, setReceiveMoney] = useInput("eu");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -49,21 +51,33 @@ const HeroForm = (props) => {
         />
 
         <div className="form-group">
-          <label>Delivery channel</label>
-          <div className="form-compound">
-            <input type="text" placeholder="840" />
-            <select>
-              <option value="mobile">USD</option>
-            </select>
-          </div>
-        </div>
-        <div className="form-group">
           <label>You send</label>
           <div className="form-compound">
             <input type="text" placeholder="100" />
-            <select>
-              <option value="mobile">EUR</option>
-            </select>
+            <SelectInput
+              value={sendMoney}
+              onChange={setSendMoney}
+              icon={dropIcon}
+              options={[
+                { value: "us", text: "USD" },
+                { value: "pk", text: "PAK" },
+              ]}
+            />
+          </div>
+        </div>
+        <div className="form-group">
+          <label>Recipient will receive</label>
+          <div className="form-compound">
+            <input type="text" placeholder="100" />
+            <SelectInput
+              value={receiveMoney}
+              onChange={setReceiveMoney}
+              icon={dropIcon}
+              options={[
+                { value: "eu", text: "Eur" },
+                { value: "pk", text: "PAK" },
+              ]}
+            />
           </div>
         </div>
         <div className="form-text-content">
