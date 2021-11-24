@@ -11,7 +11,8 @@ import "./styles/bazaarApp.scss";
 class BazaarApp extends React.Component {
   state = {
     products: [],
-    carts: [{ id: "8e518f2a-a481-4e2d-b315-d553bee9d3a8", itemNumber: 0 }],
+    carts: [],
+    price: 0.0,
   };
   componentDidMount() {
     document.title = "Bazaar - Your favorite shop";
@@ -35,7 +36,9 @@ class BazaarApp extends React.Component {
   getProduct(id) {
     return this.state.products.filter((product) => product.id === id);
   }
+
   render() {
+    const { carts, products } = this.state;
     return (
       <div>
         <Header />
@@ -47,9 +50,10 @@ class BazaarApp extends React.Component {
           <Colleactions
             products={this.state.products}
             onAddItemToCart={this.addItemToCart}
+            onEstimatePrice={this.estimateCartPrice}
           />
         </main>
-        <CardOverview />
+        <CardOverview products={products} carts={carts} length={carts.length} />
       </div>
     );
   }
