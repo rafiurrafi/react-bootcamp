@@ -15,7 +15,11 @@ class MenuSidebar extends React.Component {
       <aside className="section-menu__sidebar">
         <ul className="menu__sidebar">
           {menus.map((menu) => (
-            <MenuSidebarItem key={menu._id} menu={menu} />
+            <MenuSidebarItem
+              key={menu._id}
+              menu={menu}
+              onFilterProducts={this.props.onFilterProducts}
+            />
           ))}
         </ul>
       </aside>

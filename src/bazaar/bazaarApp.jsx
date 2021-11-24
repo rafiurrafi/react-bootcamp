@@ -36,6 +36,13 @@ class BazaarApp extends React.Component {
   getProduct(id) {
     return this.state.products.filter((product) => product.id === id);
   }
+  filterProducts = (categories) => {
+    const { products } = this.state;
+    const updatedProducts = products.filter(
+      (product) => categories.indexOf(product.category) > -1
+    );
+    this.setState({ products: updatedProducts });
+  };
 
   render() {
     const { carts, products } = this.state;
@@ -44,9 +51,8 @@ class BazaarApp extends React.Component {
         <Header />
         <Hero />
         <BannerContainer />
-        {/* <SimpleSlider /> */}
         <main className="home-main">
-          <MenuSidebar />
+          <MenuSidebar onFilterProducts={this.filterProducts} />
           <Colleactions
             products={this.state.products}
             onAddItemToCart={this.addItemToCart}
