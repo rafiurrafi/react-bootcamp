@@ -16,15 +16,6 @@ class MenuSidebarItem extends React.Component {
           <span>{menu.icon}</span> <span>{menu.title}</span>
           <span>{!dropdown ? menu.opened : menu.closed}</span>
         </div>
-        {/* {dropdown && (
-          <ul className="menu__dropdown">
-            {menu.dropdown.map((item) => (
-              <li key={item._id} className="menu__dropdownp-item">
-                <Link to="/">{item.title}</Link>
-              </li>
-            ))}
-          </ul>
-        )} */}
         <ul className={`menu__dropdown ${dropdown && "menu__dropdown--show"}`}>
           {menu.dropdown.map((item) => (
             <li key={item._id} className="menu__dropdownp-item">

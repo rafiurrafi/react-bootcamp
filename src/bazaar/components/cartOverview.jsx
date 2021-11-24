@@ -19,7 +19,7 @@ const CardOverview = ({ length, carts, products }) => {
         <AiOutlineShoppingCart />
         <span>{length} item</span>
       </p>
-      <p className="card-overview__price">${price}</p>
+      <p className="card-overview__price">${price.toFixed(2)}</p>
     </div>
   );
 };
