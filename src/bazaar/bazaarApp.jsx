@@ -14,6 +14,7 @@ class BazaarApp extends React.Component {
     carts: [],
     price: 0.0,
     selectedCategory: [],
+    searchText: "",
   };
   componentDidMount() {
     document.title = "Bazaar - Your favorite shop";
@@ -39,27 +40,31 @@ class BazaarApp extends React.Component {
   }
 
   handleSelectedCategory = (category) => {
-    console.log(category);
-    this.setState({ selectedCategory: category });
+    this.setState({ selectedCategory: category, searchText: "" });
   };
-
+  handleSearchText = (text) => {
+    this.setState({ searchText: text, selectedCategory: [] });
+  };
   render() {
-    const { carts, products, selectedCategory } = this.state;
+    const { carts, products, selectedCategory, searchText } = this.state;
     const filteredProduct =
       selectedCategory.length > 0
         ? products.filter(
             (product) => selectedCategory.indexOf(product.category) > -1
           )
         : products;
+    const filteredSearch = filteredProduct.filter((product) =>
+      product.name.includes(searchText)
+    );
     return (
       <div>
         <Header />
-        <Hero />
+        <Hero onSearchText={this.handleSearchText} />
         <BannerContainer />
         <main className="home-main">
           <MenuSidebar onSelectCategory={this.handleSelectedCategory} />
           <Colleactions
-            products={filteredProduct}
+            products={filteredSearch}
             onAddItemToCart={this.addItemToCart}
             onEstimatePrice={this.estimateCartPrice}
           />

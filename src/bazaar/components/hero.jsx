@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/hero.scss";
 const Hero = (props) => {
+  const [search, setSearch] = useState("");
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+    props.onSearchText(e.target.value);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Submitted");
+  };
   return (
     <div className="hero">
       <div className="container">
@@ -9,9 +18,11 @@ const Hero = (props) => {
           Get your healthy foods & snacks delivered at your doorsteps all day
           everyday
         </p>
-        <form className="hero__form">
+        <form className="hero__form" onSubmit={handleSubmit}>
           <input
             className="hero__input"
+            value={search}
+            onChange={handleSearch}
             placeholder="Search your product from here"
           />
           <button className="hero__submit">
