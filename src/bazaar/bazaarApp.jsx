@@ -37,13 +37,7 @@ class BazaarApp extends React.Component {
   getProduct(id) {
     return this.state.products.filter((product) => product.id === id);
   }
-  filterProducts = (categories) => {
-    const { products } = this.state;
-    const updatedProducts = products.filter(
-      (product) => categories.indexOf(product.category) > -1
-    );
-    this.setState({ products: updatedProducts });
-  };
+
   handleSelectedCategory = (category) => {
     console.log(category);
     this.setState({ selectedCategory: category });
