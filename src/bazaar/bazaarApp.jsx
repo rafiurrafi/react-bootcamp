@@ -13,6 +13,7 @@ class BazaarApp extends React.Component {
     products: [],
     carts: [],
     price: 0.0,
+    selectedCategory: [],
   };
   componentDidMount() {
     document.title = "Bazaar - Your favorite shop";
@@ -43,18 +44,28 @@ class BazaarApp extends React.Component {
     );
     this.setState({ products: updatedProducts });
   };
+  handleSelectedCategory = (category) => {
+    console.log(category);
+    this.setState({ selectedCategory: category });
+  };
 
   render() {
-    const { carts, products } = this.state;
+    const { carts, products, selectedCategory } = this.state;
+    const filteredProduct =
+      selectedCategory.length > 0
+        ? products.filter(
+            (product) => selectedCategory.indexOf(product.category) > -1
+          )
+        : products;
     return (
       <div>
         <Header />
         <Hero />
         <BannerContainer />
         <main className="home-main">
-          <MenuSidebar onFilterProducts={this.filterProducts} />
+          <MenuSidebar onSelectCategory={this.handleSelectedCategory} />
           <Colleactions
-            products={this.state.products}
+            products={filteredProduct}
             onAddItemToCart={this.addItemToCart}
             onEstimatePrice={this.estimateCartPrice}
           />

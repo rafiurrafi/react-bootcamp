@@ -29,7 +29,12 @@
     margin: 2rem 0;
   }
   &__price {
-    padding: 1.5rem 0;
+    padding: 1rem 0;
     font-weight: 700;
+  }
+  &__name {
+    font-size: 95%;
+    padding-bottom: 1.5rem;
+    color: #ccc;
   }
 }

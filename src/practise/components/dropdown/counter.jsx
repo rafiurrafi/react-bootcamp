@@ -7,6 +7,11 @@ const Counter = (props) => {
   const handleChange = (e) => {
     setName(e.target.value);
   };
+  const cache = {};
+  function addTwo(input) {
+    if (!cache.hasOwnProperty(input)) cache[input] = input + 2;
+    return cache[input];
+  }
   return (
     <div className="counter">
       <input value={name} onChange={handleChange} />

@@ -11,6 +11,7 @@ class MenuSidebar extends React.Component {
 
   render() {
     const { menus } = this.state;
+    const { onSelectCategory } = this.props;
     return (
       <aside className="section-menu__sidebar">
         <ul className="menu__sidebar">
@@ -18,7 +19,7 @@ class MenuSidebar extends React.Component {
             <MenuSidebarItem
               key={menu._id}
               menu={menu}
-              onFilterProducts={this.props.onFilterProducts}
+              onSelectCategory={onSelectCategory}
             />
           ))}
         </ul>

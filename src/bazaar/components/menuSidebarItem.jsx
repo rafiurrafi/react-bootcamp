@@ -4,20 +4,18 @@ class MenuSidebarItem extends React.Component {
   state = {
     dropdown: false,
   };
-  handleDropdown = () => {
+  handleDropdown = (category) => {
     this.setState({ dropdown: !this.state.dropdown });
+    this.props.onSelectCategory(category);
   };
   render() {
-    const { menu, onFilterProducts } = this.props;
+    const { menu, onSelectCategory } = this.props;
     const { dropdown } = this.state;
     return (
       <li key={menu._id} className="menu__sidebar-item">
         <div
           style={{ cursor: "pointer" }}
-          onClick={() => {
-            this.handleDropdown();
-            onFilterProducts(menu.category);
-          }}
+          onClick={() => this.handleDropdown(menu.category)}
         >
           <span>{menu.icon}</span> <span>{menu.title}</span>
           <span>{!dropdown ? menu.opened : menu.closed}</span>
@@ -27,7 +25,7 @@ class MenuSidebarItem extends React.Component {
             <li
               key={item._id}
               className="menu__dropdownp-item"
-              onClick={() => onFilterProducts(menu.category)}
+              onClick={() => onSelectCategory(item.category)}
             >
               {item.title}
             </li>
