@@ -1,6 +1,7 @@
 import React from "react";
 // import SimpleSlider from "./components/bannerContainer";
 import BannerContainer from "./components/bannerContainer";
+import CartDetails from "./components/cartDetails";
 import CardOverview from "./components/cartOverview";
 import Colleactions from "./components/collections";
 import Header from "./components/header";
@@ -15,6 +16,7 @@ class BazaarApp extends React.Component {
     price: 0.0,
     selectedCategory: [],
     searchText: "",
+    showCartDetails: false,
   };
   componentDidMount() {
     document.title = "Bazaar - Your favorite shop";
@@ -45,8 +47,12 @@ class BazaarApp extends React.Component {
   handleSearchText = (text) => {
     this.setState({ searchText: text, selectedCategory: [] });
   };
+  handleShowCartDetails = () => {
+    this.setState({ showCartDetails: !this.state.showCartDetails });
+  };
   render() {
-    const { carts, products, selectedCategory, searchText } = this.state;
+    const { carts, products, selectedCategory, searchText, showCartDetails } =
+      this.state;
     const filteredProduct =
       selectedCategory.length > 0
         ? products.filter(
@@ -57,7 +63,7 @@ class BazaarApp extends React.Component {
       product.name.includes(searchText)
     );
     return (
-      <div>
+      <div className="home">
         <Header />
         <Hero onSearchText={this.handleSearchText} />
         <BannerContainer />
@@ -69,7 +75,13 @@ class BazaarApp extends React.Component {
             onEstimatePrice={this.estimateCartPrice}
           />
         </main>
-        <CardOverview products={products} carts={carts} length={carts.length} />
+        <CardOverview
+          products={products}
+          carts={carts}
+          length={carts.length}
+          onShowDetails={this.handleShowCartDetails}
+        />
+        <CartDetails carts={carts} showDetails={showCartDetails} />
       </div>
     );
   }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../styles/cardOverview.scss";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-const CardOverview = ({ length, carts, products }) => {
+const CardOverview = ({ length, carts, products, onShowDetails }) => {
   const [price, setPrice] = useState(0.0);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const CardOverview = ({ length, carts, products }) => {
     setPrice(newPrice);
   }, [carts, products]);
   return (
-    <div className="card-overview">
+    <div className="card-overview" onClick={onShowDetails}>
       <p className="card-overview__item">
         <AiOutlineShoppingCart />
         <span>{length} item</span>
