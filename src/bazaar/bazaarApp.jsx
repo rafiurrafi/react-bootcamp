@@ -81,7 +81,11 @@ class BazaarApp extends React.Component {
           length={carts.length}
           onShowDetails={this.handleShowCartDetails}
         />
-        <CartDetails carts={carts} showDetails={showCartDetails} />
+        <CartDetails
+          carts={carts}
+          showDetails={showCartDetails}
+          onShowDetails={this.handleShowCartDetails}
+        />
       </div>
     );
   }
