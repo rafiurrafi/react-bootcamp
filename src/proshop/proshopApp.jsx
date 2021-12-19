@@ -1,21 +1,18 @@
 import React from "react";
 import "./bootstrap.min.css";
 import "./proshopApp.scss";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import Footer from "./components/footer";
 import Header from "./components/header";
+import HomeScreen from "./components/screens/homeScreen";
 
 const ProshopApp = () => {
   return (
     <>
       <Header />
-      <main>
+      <main className="py-3">
         <Container>
-          <Row>
-            <Col>
-              <h1>Main</h1>
-            </Col>
-          </Row>
+          <HomeScreen />
         </Container>
       </main>
       <Footer />
