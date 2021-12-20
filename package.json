@@ -21,8 +21,10 @@
   },
   "homepage": "https://github.com/rafiurrafi/react-bootcamp#readme",
   "dependencies": {
+    "colors": "^1.4.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "mongoose": "^5.10.6",
     "nodemon": "^2.0.4"
   },
   "devDependencies": {
