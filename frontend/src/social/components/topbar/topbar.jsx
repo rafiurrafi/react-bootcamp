@@ -6,14 +6,14 @@ const Topbar = () => {
   return (
     <div className="topbar">
       <div className="topbar__left">
-        <span className="logo">Social</span>
+        <span className="topbar__logo">Social</span>
       </div>
       <div className="topbar__center">
-        <div className="searchbar">
-          <Search />
+        <div className="search-bar">
+          <Search className="search-bar__icon" />
           <input
             type="text"
-            className="searchbar__input"
+            className="search-bar__input"
             placeholder="Search for friends, post or videos"
           />
         </div>
