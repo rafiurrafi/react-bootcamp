@@ -3,21 +3,21 @@ import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 // import BazaarApp from "./bazaar/bazaarApp";
 // import NotificationApp from "./notifications/notificationApp";
-import SocialApp from "./social/socialApp";
+// import SocialApp from "./social/socialApp";
 // import ProshopApp from "./proshop/proshopApp";
 // import IntensoApp from "./intenso/intensoApp";
-// import PractiseApp from "./practise/practiseApp";
+import PractiseApp from "./practise/practiseApp";
 // import AmazonApp from "./amazon/amazonApp";
 ReactDOM.render(
   <BrowserRouter>
     {/* <App /> */}
     {/* <AmazonApp /> */}
-    {/* <PractiseApp /> */}
+    <PractiseApp />
     {/* <BazaarApp /> */}
     {/* <IntensoApp /> */}
     {/* <ProshopApp /> */}
     {/* <NotificationApp /> */}
-    <SocialApp />
+    {/* <SocialApp /> */}
   </BrowserRouter>,
   // <BazaarApp />,
   document.querySelector("#root")
