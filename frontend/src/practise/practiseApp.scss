@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -7,5 +8,40 @@ html {
   font-size: 62.5%;
 }
 body {
+  font-size: 1.6rem;
+  font-family: "Open Sans", sans-serif;
+  background-color: #f1f1f1;
+}
+.practiseApp {
+  width: 30rem;
+  margin: 0 auto;
+}
+.show-design {
+  h5 {
+    line-height: 1;
+    font-size: 2rem;
+  }
+  h4 {
+    font-size: 3rem;
+  }
+}
+.show-balance__income:first-child {
+  margin-right: 1px solid red;
+}
+.show-balance__amount {
+  font-size: 2.5rem;
+}
+.heading__secondary {
+  border-bottom: 1px solid #ccc;
+}
+.balance-history__card {
+  &--red {
+    border-right: 5px solid red;
+  }
+  &--green {
+    border-right: 5px solid greenyellow;
+  }
+}
+.form-control {
   font-size: 1.6rem;
 }
