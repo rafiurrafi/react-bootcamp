@@ -1,20 +1,27 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import useInput from "./hooks/useInput";
 
 const ExpenseTracker = () => {
   const [history, setHistory] = useState([
     { text: "Cash", amount: 500 },
     { text: "Cash", amount: -300 },
   ]);
-  const [text, setText] = useState("");
-  const [amount, setAmount] = useState("");
+  const [text, setText, resetText] = useInput("");
+  const [amount, setAmount, resetAmount] = useInput("");
   const [income, setIncome] = useState(0);
   const [expense, setExpense] = useState(0);
   const addToHistory = (item) => {
     const historyCopy = [...history];
     historyCopy.push(item);
     setHistory(historyCopy);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addToHistory({ text, amount: +amount });
+    resetText();
+    resetAmount();
   };
   const calculateIncome = () => {
     let sum = 0;
@@ -33,11 +40,8 @@ const ExpenseTracker = () => {
   useEffect(() => {
     calculateExpense();
     calculateIncome();
-  }, []);
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    addToHistory();
-  };
+  }, [history]);
+
   return (
     <>
       <h1 className="text-center my-5 fw-bold">Expense tracker</h1>
@@ -88,6 +92,8 @@ const ExpenseTracker = () => {
             <label htmlFor="text">Text</label>
             <input
               type="text"
+              value={text}
+              onChange={setText}
               placeholder="Enter text"
               className="form-control  mt-2"
             />
@@ -98,6 +104,8 @@ const ExpenseTracker = () => {
             </label>
             <input
               type="text"
+              value={amount}
+              onChange={setAmount}
               placeholder="Enter amount"
               className="form-control  mt-2"
             />
