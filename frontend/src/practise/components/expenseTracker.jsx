@@ -1,10 +1,11 @@
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 
 const ExpenseTracker = () => {
   const [history, setHistory] = useState([
     { text: "Cash", amount: 500 },
-    { text: "Cash", amount: -500 },
+    { text: "Cash", amount: -300 },
   ]);
   const [text, setText] = useState("");
   const [amount, setAmount] = useState("");
@@ -25,10 +26,14 @@ const ExpenseTracker = () => {
   const calculateExpense = () => {
     let sum = 0;
     history.forEach((item) => {
-      if (item.amount >= 0) sum += item.amount;
+      if (item.amount < 0) sum += item.amount;
     });
-    setIncome(sum);
+    setExpense(sum);
   };
+  useEffect(() => {
+    calculateExpense();
+    calculateIncome();
+  }, []);
   const handleSubmit = (e) => {
     e.preventDefault();
     addToHistory();
@@ -38,7 +43,7 @@ const ExpenseTracker = () => {
       <h1 className="text-center my-5 fw-bold">Expense tracker</h1>
       <div className="show-design mb-3 ">
         <h5 className="fw-bold  mb-0">Your balance</h5>
-        <h4 className="fw-bold  mb-0">${(income - expense).toFixed(2)}</h4>
+        <h4 className="fw-bold  mb-0">${(income + expense).toFixed(2)}</h4>
       </div>
       {/* Balance showcase  */}
       <div className="balance-showcase bg-white d-flex justify-content-center py-5 my-5">
@@ -50,9 +55,9 @@ const ExpenseTracker = () => {
         </div>
         <div className="show-balance__income px-5">
           <p className="show-balance__title show-balance__title--red fw-bold mb-0">
-            Income
+            Expense
           </p>
-          <p className="show-balance__amount text-warning">${expense}</p>
+          <p className="show-balance__amount text-warning">${-expense}</p>
         </div>
       </div>
 
