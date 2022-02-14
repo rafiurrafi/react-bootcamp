@@ -3,11 +3,9 @@
 // //axios
 // //google-map-react
 
-// const GeoHotelApp = () => {
-//   return (
-
-//   );
-// };
+// Terminate this project
+// Because Not working with google map
+// for billing address
 
 // export default GeoHotelApp;
 import React from "react";
