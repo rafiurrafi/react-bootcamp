@@ -1,0 +1,24 @@
+@font-face {
+  font-family: logoFont;
+  src: url("../styles/font/Chomsky.otf");
+}
+:root {
+  --gray-text: #666;
+}
+//reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%; //1rem = 10px
+}
+body {
+  font-size: 1.7rem;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+}
+.logo {
+  font-family: logoFont;
+}
