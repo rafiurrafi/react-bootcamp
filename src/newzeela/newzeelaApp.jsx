@@ -1,4 +1,5 @@
 import React from "react";
+import HeaderMiddle from "./components/headerMiddle";
 import HeaderTop from "./components/headerTop";
 import "./components/styles/newzeelaApp.scss";
 
@@ -10,6 +11,7 @@ const NewzeelaApp = () => {
   return (
     <div className="newzeela-app">
       <HeaderTop />
+      <HeaderMiddle />
     </div>
   );
 };
