@@ -1,10 +1,10 @@
 import React from "react";
 import "./styles/headerBottom.scss";
-const HeaderBottom = () => {
+const HeaderBottom = ({ onOpenSidebar }) => {
   return (
     <div className="header__bottom">
       <div className="header__humbarger">
-        <button>
+        <button onClick={onOpenSidebar}>
           <i class="fa fa-bars" aria-hidden="true"></i>
         </button>
       </div>
