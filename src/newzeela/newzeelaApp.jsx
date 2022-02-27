@@ -4,7 +4,14 @@ import HeaderBottom from "./components/headerBottom";
 import HeaderMiddle from "./components/headerMiddle";
 import HeaderTop from "./components/headerTop";
 import useToggle from "./components/hooks/toggle";
+import LeftNews from "./components/leftNews";
+import MiddleNews from "./components/middleNews";
+import RightNews from "./components/rightNews";
+import SectionPopular from "./components/sectionPopular";
+
+// scss importing
 import "./components/styles/newzeelaApp.scss";
+import "./components/styles/topNews.scss";
 
 // react icons
 
@@ -19,6 +26,14 @@ const NewzeelaApp = () => {
       <HeaderTop />
       <HeaderMiddle />
       <HeaderBottom onOpenSidebar={setOpenSidebar} />
+      <main>
+        <section className="top-news" style={{ margin: "7rem 0 " }}>
+          <LeftNews />
+          <MiddleNews />
+          <RightNews />
+        </section>
+        <SectionPopular />
+      </main>
     </div>
   );
 };
