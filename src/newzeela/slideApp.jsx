@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./slideApp.scss";
 const slides = [
   {
     _id: 1,
@@ -41,15 +42,23 @@ const SlideApp = () => {
   console.log(current);
 
   return (
-    <div className="slides">
-      <button onClick={prevSlide}>Prev</button>
-      <button onClick={nextSlide}>Next</button>
-      {slides.map((slide) => (
-        <div className="slide">
-          <img key={slide._id} src={slide.image} alt="hello" />
-        </div>
-      ))}
-    </div>
+    <>
+      <button id="prev" onClick={prevSlide}>
+        Prev
+      </button>
+      <button id="next" onClick={nextSlide}>
+        Next
+      </button>
+      <div className="slides">
+        {slides.map((slide, index) => (
+          <div className={index === current ? "slide active" : "slide"}>
+            {index === current && (
+              <img key={slide._id} src={slide.image} alt="hello" />
+            )}
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 
