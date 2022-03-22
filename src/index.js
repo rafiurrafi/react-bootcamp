@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import MonsterApp from "./monster/monsterApp";
+import CrownApp from "./crown/crownApp";
+// import MonsterApp from "./monster/monsterApp";
 
-ReactDOM.render(<MonsterApp />, document.querySelector("#root"));
+ReactDOM.render(<CrownApp />, document.querySelector("#root"));
