@@ -1,6 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import CrownApp from "./crown/crownApp";
-// import MonsterApp from "./monster/monsterApp";
+import { BrowserRouter } from "react-router-dom";
 
-ReactDOM.render(<CrownApp />, document.querySelector("#root"));
+import "./crown/index.css";
+import App from "./crown/App";
+
+import { Provider } from "react-redux";
+
+ReactDOM.render(
+  <Provider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>,
+  document.getElementById("root")
+);
