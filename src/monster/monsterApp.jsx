@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import CardList from "./components/card-list/cardList";
 import Searchbox from "./components/searchbox/searchbox";
+import styled from "styled-components";
+const Text = styled.div`
+  font-size: "245px";
+`;
 
 class MonsterApp extends Component {
   constructor(props) {
