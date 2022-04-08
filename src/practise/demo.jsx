@@ -1,11 +1,13 @@
-import React from "react";
+import React, { Component } from "react";
 
-const Demo = (props) => {
-  return (
-    <div>
-      {props.animal} eats {props.food}
-    </div>
-  );
-};
+class Demo extends Component {
+  constructor(props) {
+    super(props);
+    console.log(this.props);
+  }
+  render() {
+    return <div>Demo component</div>;
+  }
+}
 
 export default Demo;

@@ -1,14 +1,11 @@
 import React from "react";
-import Demo from "./demo";
-import Game from "./game";
+import Counter from "./counter";
 
 const PractiseApp = () => {
   return (
     <div>
-      <Game />
-      <Demo animal="Cow" food="rice" />
+      <Counter />
     </div>
   );
 };
-
 export default PractiseApp;
