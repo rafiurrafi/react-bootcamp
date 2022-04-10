@@ -1,22 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
+import ChromaApp from "./chroma/chromaApp";
 // crown start
-// import "./crown/index.css";
-// import App from "./crown/App";
-// import { Provider } from "react-redux";
-// import { store, persistor } from "./crown/redux/store";
-// import { PersistGate } from "redux-persist/integration/react";
+import CrownApp from "./crown/crownApp";
 // crown end
 import PractiseApp from "./practise/practiseApp";
+// chrome start
+// chroma end
 ReactDOM.render(
-  // <Provider store={store}>
-  //   <BrowserRouter>
-  //     <PersistGate persistor={persistor}>
-  //       <App />
-  //     </PersistGate>
-  //   </BrowserRouter>
-  // </Provider>,
-  <PractiseApp />,
+  <BrowserRouter>
+    <CrownApp />
+  </BrowserRouter>,
+  // <PractiseApp />,
+  // <ChromaApp />,
   document.getElementById("root")
 );
