@@ -6,9 +6,10 @@ import "./portfolioApp.scss";
 import Works from "./components/works/works";
 import Testimonial from "./components/testimonial/testimonial";
 import Contact from "./components/contact/contact";
+import Menu from "./components/menu/menu";
 // @materialui-icons
 const PortfolioApp = () => {
-  const [openMenu, setOpenMenu] = useState(true);
+  const [openMenu, setOpenMenu] = useState(false);
   return (
     <div className="portfolio-app">
       <Topbar openMenu={openMenu} onOpenMenu={setOpenMenu} />
@@ -19,6 +20,7 @@ const PortfolioApp = () => {
         <Testimonial />
         <Contact />
       </section>
+      <Menu openMenu={openMenu} onOpenMenu={setOpenMenu} />
     </div>
   );
 };

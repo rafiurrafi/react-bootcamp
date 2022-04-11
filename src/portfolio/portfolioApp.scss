@@ -12,7 +12,7 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
   .sections {
-    height: calc(100vh - 7rem);
+    margin-top: 7rem;
     width: 100vw;
     position: relative;
     top: 7rem;
