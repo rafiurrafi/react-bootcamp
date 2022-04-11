@@ -1,8 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
 html {
   font-size: 62.5%;
 }
 body {
   font-size: 1.6rem;
   font-family: "Roboto", sans-serif;
+}
+.portfolio-app {
+  height: 100vh;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  .sections {
+    height: calc(100vh - 7rem);
+    width: 100vw;
+    position: relative;
+    top: 7rem;
+    scroll-snap-type: y mandatory;
+
+    & > * {
+      height: calc(100vh - 7rem);
+      scroll-snap-align: start;
+    }
+  }
 }
