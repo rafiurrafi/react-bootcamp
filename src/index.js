@@ -10,11 +10,11 @@ import PractiseApp from "./practise/practiseApp";
 // chrome start
 // chroma end
 ReactDOM.render(
-  // <BrowserRouter>
-  //   <CrownApp />
-  // </BrowserRouter>,
+  <BrowserRouter>
+    <CrownApp />
+  </BrowserRouter>,
   // <PractiseApp />,
   // <ChromaApp />,
-  <PortfolioApp />,
+  // <PortfolioApp />,
   document.getElementById("root")
 );
