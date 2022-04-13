@@ -25,4 +25,11 @@
     transform: scale(50);
     z-index: 2;
   }
+  .copy-overlay-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    bottom: 50%;
+  }
 }

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
 import CustomButton from "../custom-button/custom-button.component";
 import FormInput from "../form-input/form-input.component";
 
@@ -17,6 +18,13 @@ class SignUp extends Component {
       alert("Password doesn't match");
       return;
     }
+    try {
+      const { user } = await auth.createUserWithEmailAndPassword(
+        email,
+        password
+      );
+      await createUserProfileDocument(user, { displayName });
+    } catch (error) {}
   };
   render() {
     const { displayName, email, password, confirmPassword } = this.state;

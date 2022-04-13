@@ -3,6 +3,7 @@ import "./menu.scss";
 const Menu = ({ openMenu, onOpenMenu }) => {
   return (
     <div className={`menu ${openMenu ? "show" : ""}`}>
+      <button onClick={() => onOpenMenu(false)}>&times;</button>
       <ul>
         <li onClick={() => onOpenMenu(!openMenu)}>
           <a href="#intro">Home</a>
