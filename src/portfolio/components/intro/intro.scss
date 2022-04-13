@@ -36,6 +36,9 @@
     }
     h5 {
       font-size: 2.5rem;
+      span {
+        color: orangered;
+      }
     }
     button {
       animation: blinkArrowDown 1s ease infinite;
