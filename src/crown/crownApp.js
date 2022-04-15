@@ -16,20 +16,24 @@ class CrownApp extends Component {
       currentUser: null,
     };
   }
-  unsubscriber = null;
+  unsubscribe = null;
   componentDidMount() {
-    this.unsubscriber = auth.onAuthStateChanged(async (userAuth) => {
+    this.unsubscribe = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
         userRef.onSnapshot((snapshot) => {
-          this.setState({ currentUser: { id: snapshot.id, ...snapshot.data } });
+          this.setState({
+            currentUser: {
+              id: snapshot.id,
+              ...snapshot.data(),
+            },
+          });
         });
       }
-      this.setState({ currentUser: userAuth });
     });
   }
   componentWillUnmount() {
-    this.unsubscriber();
+    this.unsubscribe();
   }
   render() {
     return (

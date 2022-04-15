@@ -1,10 +1,10 @@
 import React from "react";
-import Counter from "./counter";
+import Box from "./box";
 
 const PractiseApp = () => {
   return (
     <div>
-      <Counter />
+      <Box />
     </div>
   );
 };
