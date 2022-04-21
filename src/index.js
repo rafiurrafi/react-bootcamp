@@ -14,12 +14,12 @@ import MonsterApp from "./monster/monsterApp";
 ReactDOM.render(
   // <Provider>
   //   <BrowserRouter>
-  //     <CrownApp />
+  <CrownApp />,
   //   </BrowserRouter>
   // </Provider>,
   // <PractiseApp />,
   // <ChromaApp />,
-  <MonsterApp />,
+  // <MonsterApp />,
   // <PortfolioApp />,
   document.getElementById("root")
 );
