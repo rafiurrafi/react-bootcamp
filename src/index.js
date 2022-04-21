@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import PortfolioApp from "./portfolio/portfolioApp";
 // crown end
 import PractiseApp from "./practise/practiseApp";
+import MonsterApp from "./monster/monsterApp";
 // chrome start
 // chroma end
 ReactDOM.render(
@@ -16,8 +17,9 @@ ReactDOM.render(
   //     <CrownApp />
   //   </BrowserRouter>
   // </Provider>,
-  <PractiseApp />,
+  // <PractiseApp />,
   // <ChromaApp />,
+  <MonsterApp />,
   // <PortfolioApp />,
   document.getElementById("root")
 );
