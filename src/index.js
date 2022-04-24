@@ -4,7 +4,6 @@ import { BrowserRouter } from "react-router-dom";
 import ChromaApp from "./chroma/chromaApp";
 // crown start
 import CrownApp from "./crown/crownApp";
-import { Provider } from "react-redux";
 import PortfolioApp from "./portfolio/portfolioApp";
 // crown end
 import PractiseApp from "./practise/practiseApp";
