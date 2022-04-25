@@ -8,11 +8,17 @@ import PortfolioApp from "./portfolio/portfolioApp";
 // crown end
 import PractiseApp from "./practise/practiseApp";
 import MonsterApp from "./monster/monsterApp";
+import UserProvider from "./crown/context/user.context";
+import ProductProvider from "./crown/context/product.context";
 // chrome start
 // chroma end
 ReactDOM.render(
   <BrowserRouter>
-    <CrownApp />
+    <UserProvider>
+      <ProductProvider>
+        <CrownApp />
+      </ProductProvider>
+    </UserProvider>
   </BrowserRouter>,
   // <PractiseApp />,
   // <ChromaApp />,
