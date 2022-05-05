@@ -2,17 +2,14 @@ import React from "react";
 import { render } from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 
-import { UserProvider } from "./crown/contexts/user.context";
-import CrownApp from "./crown/App";
+import CrownApp from "./crown/crownApp";
 
 const rootElement = document.getElementById("root");
 
 render(
   <React.StrictMode>
     <BrowserRouter>
-      <UserProvider>
-        <CrownApp />
-      </UserProvider>
+      <CrownApp />
     </BrowserRouter>
   </React.StrictMode>,
   rootElement
