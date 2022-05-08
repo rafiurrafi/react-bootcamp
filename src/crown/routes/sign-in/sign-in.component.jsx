@@ -3,7 +3,8 @@ import { createUserDocFromAuth, signInWithGooglePopup } from "../../utils/fireba
 const SignIn = () => {
     const logGoogleUser =async  () => {
         const {user} = await signInWithGooglePopup();
-        await createUserDocFromAuth(user);
+        const userDocRef = await createUserDocFromAuth(user);
+        console.log(userDocRef);
         
     }
     return ( 
