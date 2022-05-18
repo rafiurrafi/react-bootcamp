@@ -1,25 +1,38 @@
-import {Component} from "react"
-class App extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            name : "Shore"
-        }
-        this.changeName = this.changeName.bind(this)
-    }
-    changeName(){
-        const names = ["Google", "Facebook", "Apple"];
-        const random = Math.floor(Math.random() * names.length)
-        const name = names[random];
-        this.setState({name : name})
-    }
-    render() { 
-        return <div>
-            <h1>Hello, {this.state.name}</h1>
-            <button onClick={this.changeName}>Change Name</button>
+const App = () => {
+    return ( 
+        <div className="category-containers">
+        <div className="category-container">
+            <div className="category-body-container">
+                <h2>Hats</h2>
+                <p>Shop now</p>
+            </div>
         </div>
-    }
+            <div className="category-container">
+                <div className="category-body-container">
+                    <h2>Jackets</h2>
+                    <p>Shop now</p>
+                </div>
+            </div>
+            <div className="category-container">
+                <div className="category-body-container">
+                    <h2>Sneakers</h2>
+                    <p>Shop now</p>
+                </div>
+            </div>
+            <div className="category-container">
+                <div className="category-body-container">
+                    <h2>Men</h2>
+                    <p>Shop now</p>
+                </div>
+            </div>
+            <div className="category-container">
+                <div className="category-body-container">
+                    <h2>Women</h2>
+                    <p>Shop now</p>
+                </div>
+            </div>
+        </div>
+     );
 }
  
-
 export default App;
