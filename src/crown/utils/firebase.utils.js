@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import {
+  createUserWithEmailAndPassword,
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
@@ -30,7 +31,7 @@ export const signInWithGoogleRedirect = async () =>
 
 export const db = getFirestore();
 
-export const createUserDocFromAuth = async (userAuth) => {
+export const createUserDocFromAuth = async (userAuth, additionalData = {}) => {
   const userDocRef = doc(db, "users", userAuth.uid);
   const userSnapshot = await getDoc(userDocRef);
   if (!userSnapshot.exists()) {
@@ -41,6 +42,7 @@ export const createUserDocFromAuth = async (userAuth) => {
         displayName,
         email,
         createdAt,
+        ...additionalData,
       });
     } catch (error) {
       console.log(error.message);
@@ -48,3 +50,14 @@ export const createUserDocFromAuth = async (userAuth) => {
   }
   return userDocRef;
 };
+
+export const createAuthUserWithEmailAndPassword = async (email, password) => {
+  if (!email || !password) {
+    console.log("Email or password can't be empty");
+    return;
+  }
+  return await createUserWithEmailAndPassword(auth, email, password);
+};
+
+export const signInWithEmailAndPassword = async (email, password) =>
+  signInWithEmailAndPassword(auth, email, password);
