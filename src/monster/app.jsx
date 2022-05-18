@@ -1,38 +1,29 @@
+import Directory from "./directory/directory.component";
+
 const App = () => {
-    return ( 
-        <div className="category-containers">
-        <div className="category-container">
-            <div className="category-body-container">
-                <h2>Hats</h2>
-                <p>Shop now</p>
-            </div>
-        </div>
-            <div className="category-container">
-                <div className="category-body-container">
-                    <h2>Jackets</h2>
-                    <p>Shop now</p>
-                </div>
-            </div>
-            <div className="category-container">
-                <div className="category-body-container">
-                    <h2>Sneakers</h2>
-                    <p>Shop now</p>
-                </div>
-            </div>
-            <div className="category-container">
-                <div className="category-body-container">
-                    <h2>Men</h2>
-                    <p>Shop now</p>
-                </div>
-            </div>
-            <div className="category-container">
-                <div className="category-body-container">
-                    <h2>Women</h2>
-                    <p>Shop now</p>
-                </div>
-            </div>
-        </div>
-     );
-}
- 
+  const categories = [
+    {
+      id: 1,
+      title: "Hats",
+    },
+    {
+      id: 2,
+      title: "Jackets",
+    },
+    {
+      id: 13,
+      title: "Sneakers",
+    },
+    {
+      id: 14,
+      title: "Men",
+    },
+    {
+      id: 145,
+      title: "Women",
+    },
+  ];
+  return <Directory categories={categories} />;
+};
+
 export default App;
