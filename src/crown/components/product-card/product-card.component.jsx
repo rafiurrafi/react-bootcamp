@@ -6,6 +6,7 @@ const ProductCard = ({ product: { imageUrl, price, name } }) => {
       <div className="footer">
         <div className="name">{name}</div>
         <div className="price">{price}</div>
+        <button>add to cart</button>
       </div>
     </div>
   );
