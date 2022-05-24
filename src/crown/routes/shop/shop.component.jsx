@@ -7,9 +7,9 @@ const Shop = () => {
   return (
     <div>
       <h1>Shop</h1>
-      {products.map(({ id, ...props }) => (
-        <div key={id}>
-          <ProductCart {...props} />
+      {products.map((product) => (
+        <div key={product.id}>
+          <ProductCart product={product} />
         </div>
       ))}
     </div>

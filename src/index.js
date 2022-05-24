@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 
 import App from "./crown/App";
-import CartProvider from "./crown/contexts/cart.component";
+import CartProvider from "./crown/contexts/cart.context";
 import ProductProvider from "./crown/contexts/product.context";
 import { UserProvider } from "./crown/contexts/user.context";
 
