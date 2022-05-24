@@ -1,15 +1,11 @@
-const ProductCard = ({ product: { imageUrl, price, name } }) => {
-  //   console.log(props);
+const ProductCart = ({ imageUrl, price, name }) => {
   return (
-    <div className="product-card">
+    <div className="product-cart-container">
       <img src={imageUrl} alt="" />
-      <div className="footer">
-        <div className="name">{name}</div>
-        <div className="price">{price}</div>
-        <button>add to cart</button>
-      </div>
+      <h5>{name}</h5>
+      <p>{price}</p>
     </div>
   );
 };
 
-export default ProductCard;
+export default ProductCart;

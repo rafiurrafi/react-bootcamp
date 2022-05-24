@@ -1,13 +1,12 @@
-import { useNavigate } from "react-router-dom";
 import Button from "../button/button.component";
 
 const CartDropdown = () => {
-  const navigate = useNavigate();
   return (
-    <div className="cart-dropdown-container">
-      <div className="cart-items">items</div>
-
-      <Button onClick={() => navigate("/checkout")}>Go to checkout</Button>
+    <div
+      className="dropdown"
+      style={{ position: "absolute", top: 100, right: 0 }}
+    >
+      <Button>Go Checkout</Button>
     </div>
   );
 };
