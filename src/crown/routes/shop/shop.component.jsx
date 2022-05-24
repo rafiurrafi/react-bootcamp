@@ -1,18 +1,23 @@
-import { useContext } from "react";
-import ProductCart from "../../components/product-card/product-card.component";
-import { ProductContext } from "../../contexts/product.context";
+import { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import CategoriesPreview from '../categories-preview/categories-preview.component';
+import Category from '../category/category.component';
+import { fetchCategoriesStart } from '../../store/categories/category.action';
 
 const Shop = () => {
-  const { products } = useContext(ProductContext);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCategoriesStart());
+  }, []);
+
   return (
-    <div>
-      <h1>Shop</h1>
-      {products.map((product) => (
-        <div key={product.id}>
-          <ProductCart product={product} />
-        </div>
-      ))}
-    </div>
+    <Routes>
+      <Route index element={<CategoriesPreview />} />
+      <Route path=':category' element={<Category />} />
+    </Routes>
   );
 };
 
