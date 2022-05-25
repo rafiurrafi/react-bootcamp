@@ -1,4 +1,5 @@
 import { Fragment, useContext } from "react";
+import CategoryPreview from "../../components/category-preview/categoryPreview.component";
 
 import ProductCard from "../../components/product-card/product-card.component";
 
@@ -11,16 +12,10 @@ const Shop = () => {
 
   return (
     <div className="products-container">
-      {Object.keys(categoriesMap).map((title) => (
-        <Fragment>
-          <h2>{title}</h2>
-          <div>
-            {categoriesMap[title].map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-        </Fragment>
-      ))}
+      {Object.keys(categoriesMap).map((title) => {
+        const products = categoriesMap[title];
+        <CategoryPreview key={title} products={products} title={title} />;
+      })}
       {/* {products.map((product) => (
       ))} */}
     </div>
