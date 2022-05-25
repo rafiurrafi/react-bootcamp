@@ -1,23 +1,29 @@
-import { useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { Fragment, useContext } from "react";
 
-import CategoriesPreview from '../categories-preview/categories-preview.component';
-import Category from '../category/category.component';
-import { fetchCategoriesStart } from '../../store/categories/category.action';
+import ProductCard from "../../components/product-card/product-card.component";
+
+import { CategoriesContext } from "../../contexts/categories.context";
+
+import "./shop.styles.scss";
 
 const Shop = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchCategoriesStart());
-  }, []);
+  const { categoriesMap } = useContext(CategoriesContext);
 
   return (
-    <Routes>
-      <Route index element={<CategoriesPreview />} />
-      <Route path=':category' element={<Category />} />
-    </Routes>
+    <div className="products-container">
+      {Object.keys(categoriesMap).map((title) => (
+        <Fragment>
+          <h2>{title}</h2>
+          <div>
+            {categoriesMap[title].map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </Fragment>
+      ))}
+      {/* {products.map((product) => (
+      ))} */}
+    </div>
   );
 };
 
