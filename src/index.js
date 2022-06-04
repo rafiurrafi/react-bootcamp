@@ -1,30 +1,26 @@
-import React from "react";
-import { render } from "react-dom";
-import { BrowserRouter } from "react-router-dom";
+import React from 'react';
+import { render } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 
-import App from "./crown/App";
-import { UserProvider } from "./crown/contexts/user.context";
-import { CategoriesProvider } from "./crown/contexts/categories.context";
-import { CartProvider } from "./crown/contexts/cart.context";
+import App from './App';
+import { UserProvider } from './contexts/user.context';
+import { CategoriesProvider } from './contexts/categories.context';
+import { CartProvider } from './contexts/cart.context';
 
-import "./crown/index.scss";
-import { Provider } from "react-redux";
-import { store } from "./crown/store/store";
+import './index.scss';
 
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById('root');
 
 render(
   <React.StrictMode>
     <BrowserRouter>
-      <Provider store={store}>
-        <UserProvider>
-          <CategoriesProvider>
-            <CartProvider>
-              <App />
-            </CartProvider>
-          </CategoriesProvider>
-        </UserProvider>
-      </Provider>
+      <UserProvider>
+        <CategoriesProvider>
+          <CartProvider>
+            <App />
+          </CartProvider>
+        </CategoriesProvider>
+      </UserProvider>
     </BrowserRouter>
   </React.StrictMode>,
   rootElement
