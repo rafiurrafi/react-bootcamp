@@ -1,24 +1,17 @@
 import React from "react";
-import { render } from "react-dom";
-import { BrowserRouter } from "react-router-dom";
+import ReactDOM from "react-dom";
+import "./monster/index.css";
+import App from "./monster/App";
+import reportWebVitals from "./monster/reportWebVitals";
 
-import App from "./crown/App";
-import ProductProvider from "./crown/contexts/product.context";
-import { UserProvider } from "./crown/contexts/user.context";
-
-import "./crown/index.scss";
-
-const rootElement = document.getElementById("root");
-
-render(
+ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <UserProvider>
-        <ProductProvider>
-          <App />
-        </ProductProvider>
-      </UserProvider>
-    </BrowserRouter>
+    <App />
   </React.StrictMode>,
-  rootElement
+  document.getElementById("root")
 );
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();

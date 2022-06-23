@@ -1,57 +1,61 @@
-// import { useState, useEffect } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
 
-// import CardList from "./components/card-list/card-list.component";
-// import SearchBox from "./components/search-box/search-box.component";
-// import "./App.css";
-// import { getData } from "./utils/getData.utils";
+import CardList from "./components/card-list/card-list.component";
+import SearchBox from "./components/search-box/search-box.component";
+import "./App.css";
 
-// type monsters = {
-//   id: string;
-//   name: string;
-//   email: string;
-// };
+import { getData } from "./utils/data.utils";
 
-// const App = () => {
-//   const [searchField, setSearchField] = useState("");
-//   const [monsters, setMonsters] = useState([]);
-//   const [filteredMonsters, setFilterMonsters] = useState(monsters);
+export type Monster = {
+  id: string;
+  name: string;
+  email: string;
+};
 
-//   useEffect(() => {
-//     // fetch('https://jsonplaceholder.typicode.com/users')
-//     //   .then((response) => response.json())
-//     //   .then((users) => setMonsters(users));
-//     const fetchUser = async () => {
-//       const users = await getData<Array<monsters>>(
-//         "https://jsonplaceholder.typicode.com/users"
-//       );
-//     };
-//   }, []);
+const App = () => {
+  const [searchField, setSearchField] = useState("");
+  const [monsters, setMonsters] = useState<Array<Monster>>([]);
+  const [filteredMonsters, setFilterMonsters] = useState(monsters);
 
-//   useEffect(() => {
-//     const newFilteredMonsters = monsters.filter((monster) => {
-//       return monster.name.toLocaleLowerCase().includes(searchField);
-//     });
+  useEffect(() => {
+    // fetch('https://jsonplaceholder.typicode.com/users')
+    //   .then((response) => response.json())
+    //   .then((users) => setMonsters(users));
 
-//     setFilterMonsters(newFilteredMonsters);
-//   }, [monsters, searchField]);
+    const fetchUser = async () => {
+      const users = await getData<Array<Monster>>(
+        "https://jsonplaceholder.typicode.com/users"
+      );
+      setMonsters(users);
+    };
+    fetchUser();
+  }, []);
 
-//   const onSearchChange = (event) => {
-//     const searchFieldString = event.target.value.toLocaleLowerCase();
-//     setSearchField(searchFieldString);
-//   };
+  useEffect(() => {
+    const newFilteredMonsters = monsters.filter((monster) => {
+      return monster.name.toLocaleLowerCase().includes(searchField);
+    });
 
-//   return (
-//     <div className="App">
-//       <h1 className="app-title">Monsters Rolodex</h1>
+    setFilterMonsters(newFilteredMonsters);
+  }, [monsters, searchField]);
 
-//       <SearchBox
-//         className="monsters-search-box"
-//         onChangeHandler={onSearchChange}
-//         placeholder="search monsters"
-//       />
-//       <CardList monsters={filteredMonsters} />
-//     </div>
-//   );
-// };
-const App = () => {};
+  const onSearchChange = (event: ChangeEvent<HTMLInputElement>): void => {
+    const searchFieldString = event.target.value.toLocaleLowerCase();
+    setSearchField(searchFieldString);
+  };
+
+  return (
+    <div className="App">
+      <h1 className="app-title">Monsters Rolodex</h1>
+
+      <SearchBox
+        className="monsters-search-box"
+        onChangeHandler={onSearchChange}
+        placeholder="search monsters"
+      />
+      <CardList monsters={filteredMonsters} />
+    </div>
+  );
+};
+
 export default App;
