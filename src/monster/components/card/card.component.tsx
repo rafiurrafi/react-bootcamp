@@ -1,10 +1,15 @@
-import './card.styles.css';
+import { Monster } from "../../App";
+import "./card.styles.css";
 
-const Card = ({ monster }) => {
+type cartProps = {
+  monster: Monster;
+};
+
+const Card = ({ monster }: cartProps) => {
   const { id, name, email } = monster;
 
   return (
-    <div className='card-container'>
+    <div className="card-container">
       <img
         alt={`monster ${name}`}
         src={`https://robohash.org/${id}?set=set2&size=180x180`}
