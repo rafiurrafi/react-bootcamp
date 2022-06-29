@@ -11,9 +11,9 @@ const SignIn = () => {
     const response = await signInWithGooglePopup();
     console.log(response);
   };
-  useEffect(async () => {
-    await getRedirectResult(auth);
-  }, []);
+  // useEffect(async () => {
+  //   await getRedirectResult(auth);
+  // }, []);
   return (
     <div>
       <h1>Sign in</h1>
