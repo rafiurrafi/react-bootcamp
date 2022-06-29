@@ -1,29 +1,34 @@
+import { useEffect, useState } from "react";
+
 const MonsterApp = () => {
-  const monsters = [
-    {
-      id: 1,
-      name: "Illena D'cruz",
-    },
-    {
-      id: 2,
-      name: "Nikita Dutt",
-    },
-    {
-      id: 3,
-      name: "Katrina Kaif",
-    },
-    {
-      id: 4,
-      name: "Urbashi Ratoula",
-    },
-    {
-      id: 5,
-      name: "Puja Hegde",
-    },
-  ];
+  const [monsters, setMonsters] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((data) => setMonsters(data));
+  }, []);
+
+  useEffect(() => {
+    const updated = monsters.filter((monster) =>
+      monster.name.includes(searchQuery)
+    );
+    console.log(searchQuery);
+    setMonsters(updated);
+  }, [searchQuery]);
+
+  //   const updated = monsters.filter((monster) =>
+  //     monster.name.includes(searchQuery)
+  //   );
+
   return (
     <div className="monster">
       <h1>Monster app</h1>
+      <input
+        type="text"
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+      />
       <div>
         {monsters.map(({ id, name }) => (
           <div className="" key={id}>
