@@ -1,19 +1,25 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { render } from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import App from "./crown/app";
-import { CardContext } from "./crown/context/card.context";
-import { ProductContext } from "./crown/context/product.context";
-import { UserContext } from "./crown/context/user.context";
-ReactDOM.render(
-  <BrowserRouter>
-    <UserContext>
-      <ProductContext>
-        <CardContext>
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+
+import App from "./crown/App";
+import { store, persistor } from "./crown/store/store";
+
+import "./crown/index.scss";
+
+const rootElement = document.getElementById("root");
+
+render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter>
           <App />
-        </CardContext>
-      </ProductContext>
-    </UserContext>
-  </BrowserRouter>,
-  document.querySelector("#root")
+        </BrowserRouter>
+      </PersistGate>
+    </Provider>
+  </React.StrictMode>,
+  rootElement
 );

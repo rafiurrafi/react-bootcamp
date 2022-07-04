@@ -1,13 +1,23 @@
-import ProductCard from "../../components/product-card/product-card.component";
-import SHOP_DATA from "../../shop_data.json";
+import { useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
+import CategoriesPreview from "../categories-preview/categories-preview.component";
+import Category from "../category/category.component";
+import { fetchCategoryAsync } from "../../store/categories/category.action";
+
 const Shop = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCategoryAsync());
+  }, []);
+
   return (
-    <div>
-      <h1>Shop</h1>
-      {SHOP_DATA.map(({ id, name, price, imageUrl }) => (
-        <ProductCard key={id} name={name} price={price} imageUrl={imageUrl} />
-      ))}
-    </div>
+    <Routes>
+      <Route index element={<CategoriesPreview />} />
+      <Route path=":category" element={<Category />} />
+    </Routes>
   );
 };
 
