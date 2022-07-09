@@ -20,17 +20,13 @@ const userReducer = (state, action) => {
       throw new Error(`Unhandled action type ${type}`);
   }
 };
-
-const INITIAL_USER = {
+const INITIAL_STATE = {
   currentUser: null,
 };
-
 export const UserProvider = ({ children }) => {
-  const [{ currentUser }, dispatch] = useReducer(userReducer, INITIAL_USER);
-
+  const [{ currentUser }, dispatch] = useReducer(userReducer, INITIAL_STATE);
   const setCurrentUser = (user) =>
     dispatch({ type: "SET_CURRENT_USER", payload: user });
-
   const value = { currentUser, setCurrentUser };
 
   useEffect(() => {

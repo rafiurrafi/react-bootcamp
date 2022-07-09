@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useReducer } from "react";
+import { createContext, useReducer, useEffect } from "react";
 
 const addCartItem = (cartItems, productToAdd) => {
   const existingCartItem = cartItems.find(
@@ -48,14 +48,12 @@ export const CartContext = createContext({
   cartCount: 0,
   cartTotal: 0,
 });
-
 const INITIAL_STATE = {
   isCartOpen: false,
   cartItems: [],
   cartCount: 0,
   cartTotal: 0,
 };
-
 const cartReducer = (state, action) => {
   const { type, payload } = action;
   switch (type) {
@@ -67,19 +65,13 @@ const cartReducer = (state, action) => {
     case "TOGGLE_CART":
       return {
         ...state,
-        ...payload,
+        isCartOpen: payload,
       };
 
     default:
       throw new Error(`Unhandled action type ${type}`);
   }
 };
-// {
-//   isCartOpen : false,
-//   cartItems :[{id : 1, cart : "hello"}],
-//   cartCount : 10,
-//   cartTotal : 300
-// }
 
 export const CartProvider = ({ children }) => {
   // const [isCartOpen, setIsCartOpen] = useState(false);
@@ -109,22 +101,24 @@ export const CartProvider = ({ children }) => {
   };
 
   const addItemToCart = (productToAdd) => {
-    const newCartItem = addCartItem(cartItems, productToAdd);
-    updateCartItemReducer(newCartItem);
+    const newCartItems = addCartItem(cartItems, productToAdd);
+    updateCartItemReducer(newCartItems);
   };
 
   const removeItemToCart = (cartItemToRemove) => {
-    const newCartItem = removeCartItem(cartItems, cartItemToRemove);
-    updateCartItemReducer(newCartItem);
+    const newCartItems = removeCartItem(cartItems, cartItemToRemove);
+    updateCartItemReducer(newCartItems);
   };
 
   const clearItemFromCart = (cartItemToClear) => {
-    const newCartItem = clearCartItem(cartItems, cartItemToClear);
-    updateCartItemReducer(newCartItem);
+    const newCartItems = clearCartItem(cartItems, cartItemToClear);
+    updateCartItemReducer(newCartItems);
   };
+
   const setIsCartOpen = (bool) => {
     dispatch({ type: "TOGGLE_CART", payload: { isCartOpen: bool } });
   };
+
   const value = {
     isCartOpen,
     setIsCartOpen,
