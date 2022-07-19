@@ -1,8 +1,9 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDom from "react-dom";
 import App from "./crown/app";
 import { BrowserRouter } from "react-router-dom";
-ReactDOM.render(
+
+ReactDom.render(
   <BrowserRouter>
     <App />
   </BrowserRouter>,
