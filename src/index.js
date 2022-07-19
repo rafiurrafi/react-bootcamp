@@ -1,11 +1,19 @@
 import React from "react";
-import ReactDom from "react-dom";
-import App from "./crown/app";
+import { render } from "react-dom";
+import "./crown/index.scss";
+import App from "./crown/App";
 import { BrowserRouter } from "react-router-dom";
+import UserProvider from "./crown/context/user.context";
 
-ReactDom.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
-  document.querySelector("#root")
+const rootElement = document.getElementById("root");
+
+render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <UserProvider>
+        <App />
+      </UserProvider>
+    </BrowserRouter>
+  </React.StrictMode>,
+  rootElement
 );
