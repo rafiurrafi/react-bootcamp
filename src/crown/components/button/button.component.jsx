@@ -1,11 +1,16 @@
-const BUTTON_TYPES = {
-  google: "google",
+import "./button.styles.scss";
+
+export const BUTTON_TYPE_CLASSES = {
+  google: "google-sign-in",
   inverted: "inverted",
 };
 
-const Button = ({ type, children, ...props }) => {
+const Button = ({ children, buttonType, ...otherProps }) => {
   return (
-    <button className={`${BUTTON_TYPES[type]} button`} {...props}>
+    <button
+      className={`button-container ${BUTTON_TYPE_CLASSES[buttonType]}`}
+      {...otherProps}
+    >
       {children}
     </button>
   );
