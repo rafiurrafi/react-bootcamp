@@ -1,16 +1,5 @@
-import React from 'react';
-import { render } from 'react-dom';
-import './crown/index.scss';
-import App from './crown/App';
-import { BrowserRouter } from 'react-router-dom';
-
-const rootElement = document.getElementById('root');
-
-render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>,
-  rootElement
-);
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./crown/App";
+import "./crown/index.scss";
+ReactDOM.render(<App />, document.querySelector("#root"));
