@@ -1,11 +1,9 @@
-import { combineReducers } from 'redux';
-
-import { userReducer } from './user/user.reducer';
-import { categoriesReducer } from './categories/category.reducer';
-import { cartReducer } from './cart/cart.reducer';
-
-export const rootReducer = combineReducers({
+import { combineReducers } from "redux";
+import { cartReducer } from "./cart/cart.reducer";
+import { categoryReducer } from "./category/category.reducer";
+import { userReducer } from "./user/user.reducer";
+export default combineReducers({
   user: userReducer,
-  categories: categoriesReducer,
+  categories: categoryReducer,
   cart: cartReducer,
 });
