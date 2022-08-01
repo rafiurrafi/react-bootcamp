@@ -1,0 +1,3 @@
+export const POST_ACTION_TYPES = {
+  SET_POST_ITEM: "SET_POST_ITEM",
+};
