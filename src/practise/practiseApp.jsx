@@ -1,12 +1,21 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { addItem } from "./store/actions";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { counterAsync } from "./store/incrementReducer";
+
 const PractiseApp = () => {
+  const counter = useSelector((state) => state.counter.counter);
+  const isLoading = useSelector((state) => state.counter.isLoading);
+  console.log(isLoading);
   const dispatch = useDispatch();
+  const handleIncrement = () => {
+    dispatch(counterAsync());
+  };
   return (
     <div>
-      Practise App
-      <button onClick={() => dispatch(addItem())}>Add to cart</button>
+      <h3>Counter : {counter}</h3>
+      <button onClick={handleIncrement}>
+        {isLoading ? "Loading..." : "Inc"}{" "}
+      </button>
     </div>
   );
 };

@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 
 import "./crown/index.scss";
 import PractiseApp from "./practise/practiseApp";
-import { store } from "./practise/store/store";
+import store from "./practise/store/store";
 const rootElement = document.getElementById("root");
 
 render(
