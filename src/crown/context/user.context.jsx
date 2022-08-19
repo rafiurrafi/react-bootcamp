@@ -1,4 +1,5 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import { onStateChangedListener } from "../utils/firebase.utils";
 
 export const UserContext = createContext({
   currentUser: null,
@@ -6,7 +7,11 @@ export const UserContext = createContext({
 });
 const UserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
-  console.log(currentUser);
+  useEffect(() => {
+    onStateChangedListener((user) => {
+      setCurrentUser(user);
+    });
+  });
   const value = { currentUser, setCurrentUser };
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };

@@ -3,6 +3,7 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   GoogleAuthProvider,
+  onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
   signInWithRedirect,
@@ -58,3 +59,5 @@ export const createUserDocumentFromAuth = async (
   }
   return userDocRef;
 };
+export const onStateChangedListener = (callback) =>
+  onAuthStateChanged(auth, callback);
