@@ -1,7 +1,6 @@
 import { combineReducers } from "redux";
-import { counterReducer } from "./incrementReducer";
 
 const rootReducer = combineReducers({
-  counter: counterReducer,
+  user: () => ({ type: "user", name: "Shaahbaz khan" }),
 });
 export default rootReducer;

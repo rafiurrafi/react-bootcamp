@@ -1,17 +1,11 @@
 import React from "react";
 import { render } from "react-dom";
-import { Provider } from "react-redux";
-
-import "./crown/index.scss";
-import PractiseApp from "./practise/practiseApp";
-import store from "./practise/store/store";
+import App from "./crown/app";
 const rootElement = document.getElementById("root");
 
 render(
   <React.StrictMode>
-    <Provider store={store}>
-      <PractiseApp />
-    </Provider>
+    <App />
   </React.StrictMode>,
   rootElement
 );
