@@ -1,9 +1,15 @@
-const FormInput = ({ label, ...props }) => {
+import { FormInputLabel, Input, Group } from './form-input.styles';
+
+const FormInput = ({ label, ...otherProps }) => {
   return (
-    <div>
-      {label && <label htmlFor="displayName">{label}</label>}
-      <input {...props} />
-    </div>
+    <Group>
+      <Input {...otherProps} />
+      {label && (
+        <FormInputLabel shrink={otherProps.value.length}>
+          {label}
+        </FormInputLabel>
+      )}
+    </Group>
   );
 };
 
