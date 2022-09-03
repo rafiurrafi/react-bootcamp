@@ -1,6 +1,7 @@
 import LargePeopleList from "./people/large.people.list";
 import SmallPeopleList from "./people/small.people.list";
 import RegularList from "./regular-list";
+import Uncontrolled from "./uncontrolled";
 
 const people = [
   {
@@ -59,6 +60,7 @@ const App = () => {
         resourceName="person"
         itemComponent={LargePeopleList}
       />
+      <Uncontrolled />
     </>
   );
 };
