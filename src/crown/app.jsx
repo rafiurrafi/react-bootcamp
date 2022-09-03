@@ -1,14 +1,65 @@
-import SplitScreen from "./split-screen";
-const Left = () => <h1>Hello</h1>;
-const Right = () => <h1>Right</h1>;
+import LargePeopleList from "./people/large.people.list";
+import SmallPeopleList from "./people/small.people.list";
+import RegularList from "./regular-list";
+
+const people = [
+  {
+    id: Symbol(),
+    name: "A",
+    age: 11,
+    hairColor: "brown",
+    hobbies: ["Dance", "sing"],
+  },
+  {
+    id: Symbol(),
+    name: "B",
+    age: 12,
+    hairColor: "brown",
+    hobbies: ["Dance", "sing"],
+  },
+  {
+    id: Symbol(),
+    name: "C",
+    age: 13,
+    hairColor: "brown",
+    hobbies: ["Dance", "sing"],
+  },
+  {
+    id: Symbol(),
+    name: "AQ",
+    age: 14,
+    hairColor: "brown",
+    hobbies: ["Dance", "sing"],
+  },
+  {
+    id: Symbol(),
+    name: "AS",
+    age: 1,
+    hairColor: "brown",
+    hobbies: ["Dance", "sing"],
+  },
+];
+const products = [
+  {
+    name: "DAS",
+    price: 12,
+    description: "lorem lorem lorem lorem lorem lorem lorem ",
+  },
+];
 const App = () => {
   return (
-    <div>
-      <SplitScreen leftWeight={1} rightWeight={3}>
-        <Left />
-        <Right />
-      </SplitScreen>
-    </div>
+    <>
+      <RegularList
+        items={people}
+        resourceName="person"
+        itemComponent={SmallPeopleList}
+      />
+      <RegularList
+        items={people}
+        resourceName="person"
+        itemComponent={LargePeopleList}
+      />
+    </>
   );
 };
 
