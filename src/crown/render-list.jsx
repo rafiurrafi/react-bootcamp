@@ -1,10 +1,12 @@
-const RenderList = ({ items, resourceKey, itemComponent: ItemComponent }) => {
+const RenderList = ({ items, component: Component, object }) => {
   return (
-    <>
+    <div>
       {items.map((item) => (
-        <ItemComponent {...{ [resourceKey]: item }} />
+        <>
+          <Component {...{ [object]: item }} />
+        </>
       ))}
-    </>
+    </div>
   );
 };
 

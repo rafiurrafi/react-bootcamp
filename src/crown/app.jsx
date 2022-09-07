@@ -1,31 +1,34 @@
-import RenderList from "./render-list";
-import SmallList from "./people/small-list";
-import LargeList from "./people/large-list";
+import { useState } from "react";
 import Modal from "./modal";
-import { printProps } from "./print-props";
+import LargeList from "./people/large-list";
+import SmallList from "./people/small-list";
+import RenderList from "./render-list";
+import SplitScreen from "./split-screen";
+import Uncontrolled from "./uncontrolled";
 
 const people = [
-  {
-    name: "A",
-    age: 10,
-    hobbies: ["A", "B", "C"],
-  },
-  {
-    name: "AV",
-    age: 10,
-    hobbies: ["A", "B", "C"],
-  },
-  {
-    name: "CA",
-    age: 10,
-    hobbies: ["A", "B", "C"],
-  },
+  { name: "Max", age: 42, hobbies: ["Cricket", "Cooking"] },
+  { name: "Min", age: 42, hobbies: ["Cricket", "Cooking"] },
+  { name: "Small", age: 42, hobbies: ["Cricket", "Cooking"] },
+  { name: "Big", age: 42, hobbies: ["Cricket", "Cooking"] },
 ];
 const App = () => {
-  const Wrapper = printProps(SmallList);
+  const [showModal, setShowModal] = useState(false);
   return (
     <div>
-      <Wrapper />
+      {/* <SplitScreen>
+        <Left />
+        <Right />
+      </SplitScreen> */}
+      {/* <RenderList items={people} component={SmallList} object="person" /> */}
+      {/* <RenderList items={people} component={LargeList} object="person" /> */}
+      <button onClick={() => setShowModal(true)}>Open</button>
+      {showModal && (
+        <Modal isOpen={showModal} onOpen={setShowModal}>
+          <RenderList items={people} component={SmallList} object="person" />
+        </Modal>
+      )}
+      <Uncontrolled />
     </div>
   );
 };

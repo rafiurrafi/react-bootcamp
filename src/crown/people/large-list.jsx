@@ -2,11 +2,10 @@ const LargeList = ({ person }) => {
   const { name, age, hobbies } = person;
   return (
     <div>
-      <h3>{name}</h3>
-      <p>{age}</p>
-      {hobbies.map((hobby) => (
-        <li key={hobby}>{hobby}</li>
-      ))}
+      <h4>
+        {name} - {age}
+      </h4>
+      <ul>{hobbies.map((hobby) => hobby)}</ul>
     </div>
   );
 };
