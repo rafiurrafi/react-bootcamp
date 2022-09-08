@@ -1,5 +1,21 @@
 import Onboarding from "./onboarding";
-
+const nested = {
+  a: 1,
+  b: {
+    b1: 4,
+    b2: {
+      b21: "hello",
+    },
+    b3: {
+      b31: {
+        message: "Hello !!",
+      },
+      b32: {
+        message: "Hiiiiii !!",
+      },
+    },
+  },
+};
 const Step = ({ gotoNext }) => (
   <div>
     <h1>Step1</h1>
