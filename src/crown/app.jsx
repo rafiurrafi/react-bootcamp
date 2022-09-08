@@ -1,35 +1,30 @@
-import { useState } from "react";
-import Modal from "./modal";
-import LargeList from "./people/large-list";
-import SmallList from "./people/small-list";
-import RenderList from "./render-list";
-import SplitScreen from "./split-screen";
-import Uncontrolled from "./uncontrolled";
+import Onboarding from "./onboarding";
 
-const people = [
-  { name: "Max", age: 42, hobbies: ["Cricket", "Cooking"] },
-  { name: "Min", age: 42, hobbies: ["Cricket", "Cooking"] },
-  { name: "Small", age: 42, hobbies: ["Cricket", "Cooking"] },
-  { name: "Big", age: 42, hobbies: ["Cricket", "Cooking"] },
-];
+const Step = ({ gotoNext }) => (
+  <div>
+    <h1>Step1</h1>
+    <button onClick={gotoNext}>Next</button>
+  </div>
+);
+const Step1 = ({ gotoNext }) => (
+  <div>
+    <h1>Step2</h1>
+    <button onClick={gotoNext}>Next</button>
+  </div>
+);
+const Step2 = ({ gotoNext }) => (
+  <div>
+    <h1>Step3</h1>
+    <button onClick={gotoNext}>Next</button>
+  </div>
+);
 const App = () => {
-  const [showModal, setShowModal] = useState(false);
   return (
-    <div>
-      {/* <SplitScreen>
-        <Left />
-        <Right />
-      </SplitScreen> */}
-      {/* <RenderList items={people} component={SmallList} object="person" /> */}
-      {/* <RenderList items={people} component={LargeList} object="person" /> */}
-      <button onClick={() => setShowModal(true)}>Open</button>
-      {showModal && (
-        <Modal isOpen={showModal} onOpen={setShowModal}>
-          <RenderList items={people} component={SmallList} object="person" />
-        </Modal>
-      )}
-      <Uncontrolled />
-    </div>
+    <Onboarding>
+      <Step />
+      <Step1 />
+      <Step2 />
+    </Onboarding>
   );
 };
 
