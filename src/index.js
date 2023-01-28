@@ -1,22 +1,31 @@
 import React from "react";
 import { render } from "react-dom";
-import "./crown/index.scss";
-import App from "./crown/App";
 import { BrowserRouter } from "react-router-dom";
-import UserProvider from "./crown/context/user.context";
-import ProductProvider from "./crown/context/products.context";
+
+import App from "./crown/App";
+import { UserProvider } from "./crown/contexts/user.context";
+import { CategoriesProvider } from "./crown/contexts/categories.context";
+import { CartProvider } from "./crown/contexts/cart.context";
+
+import "./crown/index.scss";
+import { Provider } from "react-redux";
+import store from "./crown/store/store";
 
 const rootElement = document.getElementById("root");
 
 render(
   <React.StrictMode>
-    <BrowserRouter>
-      <UserProvider>
-        <ProductProvider>
+    <Provider store={store}>
+      <BrowserRouter>
+        {/* <UserProvider> */}
+        {/* <CategoriesProvider> */}
+        <CartProvider>
           <App />
-        </ProductProvider>
-      </UserProvider>
-    </BrowserRouter>
+        </CartProvider>
+        {/* </CategoriesProvider> */}
+        {/* </UserProvider> */}
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   rootElement
 );

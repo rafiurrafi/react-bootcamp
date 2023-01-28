@@ -1,32 +1,27 @@
-import { useContext } from "react";
-import { ProductContext } from "../../context/products.context";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { Routes, Route } from "react-router-dom";
+import { setCategoriesMap } from "../../store/category/category.action";
+import { getCategoriesAndDocuments } from "../../utils/firebase/firebase.utils";
+
+import CategoriesPreview from "../categories-preview/categories-preview.component";
+import Category from "../category/category.component";
 
 const Shop = () => {
-  const { products } = useContext(ProductContext);
-  function addToCart() {
-    console.log(products);
-  }
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const getCategoriesMap = async () => {
+      const categoryMap = await getCategoriesAndDocuments("categories");
+      dispatch(setCategoriesMap(categoryMap));
+    };
+
+    getCategoriesMap();
+  }, []);
   return (
-    <div>
-      <h1>Shop</h1>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(2, 1fr)",
-          gridGap: "1rem",
-        }}
-      >
-        {products.map((product) => (
-          <div>
-            <img src={product.imageUrl} style={{ width: "100%" }} />
-            <h4>
-              {product.name} - {product.price}
-            </h4>
-            <button onClick={() => addToCart(product)}>Add to cart</button>
-          </div>
-        ))}
-      </div>
-    </div>
+    <Routes>
+      <Route index element={<CategoriesPreview />} />
+      <Route path=":category" element={<Category />} />
+    </Routes>
   );
 };
 
