@@ -1,34 +1,32 @@
 import { useEffect, useState } from "react";
-
+import "./practiseApp.scss";
+import QuoteApp from "./quote/quoteApp";
 const PractiseApp = () => {
-  const [posts, setPosts] = useState([]);
-  const [page, setPage] = useState(1);
-
-  function func() {
-    if (
-      window.innerHeight + document.documentElement.scrollTop + 1 >=
-      document.documentElement.scrollHeight
-    ) {
-      setPage((page) => page + 1);
-    }
-  }
-
+  const [quote, setQuote] = useState("");
+  const [color, setColor] = useState("red");
+  console.log(quote);
   useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/posts/?_limit=9&_page=${page}`)
-      .then((res) => res.json())
-      .then((data) => setPosts((prev) => [...prev, ...data]));
-  }, [page]);
-  useEffect(() => {
-    window.addEventListener("scroll", func);
+    getQuote();
   }, []);
+  function getQuote() {
+    const randomNumber = Math.floor(Math.random() * 200);
+    fetch("https://jsonplaceholder.typicode.com/todos/" + randomNumber)
+      .then((res) => res.json())
+      .then((data) => {
+        setQuote(data);
+        setColor(generateColor());
+      });
+  }
+  function generateColor() {
+    function col() {
+      const hex = Math.floor(Math.random() * 255).toString(16);
+      return ("0" + String(hex)).substr(-2);
+    }
+    return "#" + col() + col() + col();
+  }
   return (
-    <div>
-      {posts.map(({ id, title, body }) => (
-        <div style={{ padding: "3rem 0" }}>
-          <h1>{title}</h1>
-          <p>{body}</p>
-        </div>
-      ))}
+    <div style={{ height: "100vh", widht: "100vw", backgroundColor: color }}>
+      <QuoteApp quote={quote} onQuote={getQuote} />
     </div>
   );
 };
