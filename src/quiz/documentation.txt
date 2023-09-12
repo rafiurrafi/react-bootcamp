@@ -1,0 +1,5 @@
+1. start button to start game
+2. single ques no second options
+3. prev and next features
+4. time limit
+5. show output

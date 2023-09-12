@@ -1,40 +1,32 @@
-import { Outlet } from 'react-router-dom';
-
-import Directory from '../../components/directory/directory.component';
+import Directory from "../../components/directory/directory.component";
 
 const Home = () => {
-  const categories = [
+  const data = [
     {
       id: 1,
-      title: 'hats',
-      imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+      name: "Men",
     },
     {
       id: 2,
-      title: 'jackets',
-      imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+      name: "Women",
     },
     {
       id: 3,
-      title: 'sneakers',
-      imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
+      name: "Shirt",
     },
     {
       id: 4,
-      title: 'womens',
-      imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
+      name: "Pant",
     },
     {
       id: 5,
-      title: 'mens',
-      imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
+      name: "Sneaker",
     },
   ];
-
   return (
     <div>
-      <Directory categories={categories} />
-      <Outlet />
+      <h1>App</h1>
+      <Directory data={data} />
     </div>
   );
 };
