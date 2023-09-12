@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Paper from "./components/paper.component";
 
 const QuizApp = () => {
   const [questions, setQuestions] = useState([]);
@@ -24,7 +25,7 @@ const QuizApp = () => {
           </button>
         </>
       ) : (
-        <h1>xm started</h1>
+        <Paper questions={questions} />
       )}
     </div>
   );
